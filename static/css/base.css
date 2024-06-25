@@ -18,8 +18,17 @@ body {
     height: 90%;
 }
 
+#logo-mini {
+    display:none;
+    width: 50px;
+}
+
 .pink-font {
     color: #f3bdd9;
+}
+a#mobile-search.nav-link.d-block.d-lg-none,
+a.text-black.nav-link.d-block.d-lg-none {
+    padding: 0;
 }
 
 /* homepage */
@@ -38,4 +47,31 @@ body {
     background-color: rgba(0, 0, 0, 0.1);
     padding: 20px;
     border-radius: 4px;
+}
+
+/* Media queries */
+
+@media (max-width: 400px) {
+    #logo {
+        display: none;
+    }
+    #logo-mini {
+        display:inline-block;
+    }
+
+    .mobile-icon {
+        font-size: 10px; 
+    }
+
+}
+
+@media (max-width: 619px) {
+    #logo {
+        width: 150px;
+    }
+
+    .mobile-icon {
+        font-size: 15px; 
+    }
+
 }

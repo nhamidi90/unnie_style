@@ -34,24 +34,24 @@
 
 <body>
     <header class="container-fluid fixed-top background-white">
-        <div class="row pt-lg-2 d-none d-flex">
+        <div class="row pt-lg-2 d-none d-lg-flex">
             <div class="col-4 my-auto">
                 <form method="GET" action="">
                     <div class="input-group w-100">
-                    <input class="form-control" type="text" name="q" placeholder="Search" aria-label="Search">
-                    <div class="input-group-append">
-                    <button class="form-control btn" type="submit">
-                        <span class="icon">
-                        <i class="fas fa-search"></i>
-                    </span>
-                    </button>
-                    </div>
+                        <input class="form-control" type="text" name="q" placeholder="Search" aria-label="Search">
+                        <div class="input-group-append">
+                            <button class="form-control btn" type="submit">
+                                <span class="icon">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>
             <div class="col-4 my-auto text-center">
-                <a href="{% url 'home' %}"><img id="logo" src="{{ MEDIA_URL }}logo.png" 
-                    alt="Go to Unnie Style homepage">
+                <a href="{% url 'home' %}">
+                    <img id="logo" src="{{ MEDIA_URL }}logo.png" alt="Go to Unnie Style homepage">
                 </a>
             </div>
             <div class="col-4 my-auto">
@@ -90,6 +90,18 @@
                         </a>
                     </li>
                 </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <nav class="navbar navbar-expand-lg navbar-light w-100">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" 
+                        aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    {% include 'includes/mobile_top_header.html' %}
+                    {% include 'includes/main_nav.html' %}
+                </nav>
             </div>
         </div>
     </header>
