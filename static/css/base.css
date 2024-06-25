@@ -26,24 +26,25 @@ body {
 .pink-font {
     color: #f3bdd9;
 }
+
 a#mobile-search.nav-link.d-block.d-lg-none,
 a.text-black.nav-link.d-block.d-lg-none {
     padding: 0;
 }
 
 /* homepage */
+
 .home-banner {
-    background: url('/media/homepage-background.jpg') no-repeat center center fixed;
+    background: url('/media/homepage-background.jpg') no-repeat center center;
     background-size: cover;
-    height: 500px;
-    margin-top: 100px;
+    height: 800px;
     position: relative;
 }
-
 .banner-text {
     position: absolute;
-    top: 100px;
-    right: 200px;
+    top: -600px;
+    right: 50px;
+    width: 250px;
     background-color: rgba(0, 0, 0, 0.1);
     padding: 20px;
     border-radius: 4px;
@@ -74,4 +75,16 @@ a.text-black.nav-link.d-block.d-lg-none {
         font-size: 15px; 
     }
 
+    .home-banner {
+        background: url('/media/homepage-background-small.jpg') no-repeat center center;
+        background-size: cover;
+        height: 700px;
+    }
+
+    .banner-text {
+        top: -150px;
+        background-color: rgba(0, 0, 0, 0.2);
+        color: white;
+    }
 }
+
