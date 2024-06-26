@@ -1,0 +1,91 @@
+[{"pk": 1, 
+"model": "products.other_images", 
+"fields": {
+"image": "sarang_black.webp", 
+"product": 1
+}},
+{"pk": 2, 
+"model": "products.other_images", 
+"fields": {
+"image": "plain_sarang_black.webp", 
+"product": 1
+}},
+{"pk": 3, 
+"model": "products.other_images", 
+"fields": {
+"image": "plain_sarang_white.webp", 
+"product": 1
+}},
+{"pk": 4, 
+"model": "products.other_images", 
+"fields": {
+"image": "fearless_black.webp", 
+"product": 2
+}},
+{"pk": 5, 
+"model": "products.other_images", 
+"fields": {
+"image": "plain_fearless_black.webp", 
+"product": 2
+}},
+{"pk": 6, 
+"model": "products.other_images", 
+"fields": {
+"image": "plain_fearless_white.webp", 
+"product": 2
+}},
+{"pk": 7, 
+"model": "products.other_images", 
+"fields": {
+"image": "plain_sgn_black.webp", 
+"product": 3
+}},
+{"pk": 8, 
+"model": "products.other_images", 
+"fields": {
+"image": "sgn_mug_front.webp", 
+"product": 4
+}},
+{"pk": 9, 
+"model": "products.other_images", 
+"fields": {
+"image": "sgn_mug_back.webp", 
+"product": 4
+}},
+{"pk": 10, 
+"model": "products.other_images", 
+"fields": {
+"image": "cat_mug_front.webp", 
+"product": 5
+}},
+{"pk": 11, 
+"model": "products.other_images", 
+"fields": {
+"image": "cat_mug_back.webp", 
+"product": 5
+}},
+{"pk": 12, 
+"model": "products.other_images", 
+"fields": {
+"image": "sarang_mug_front.webp", 
+"product": 6
+}},
+{"pk": 13, 
+"model": "products.other_images", 
+"fields": {
+"image": "sarang_mug_back.webp", 
+"product": 6
+}},
+{"pk": 14, 
+"model": "products.other_images", 
+"fields": {
+"image": "morn_night_mug_front.webp", 
+"product": 7
+}},
+{"pk": 15, 
+"model": "products.other_images", 
+"fields": {
+"image": "morn_night_mug_back.webp", 
+"product": 7
+}}
+]
