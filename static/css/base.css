@@ -12,6 +12,10 @@ body {
     font-family: nunito;
 }
 
+.header-container {
+    padding-top: 170px;
+}
+
 #logo {
     width: 90%;
     max-width: 300px;
