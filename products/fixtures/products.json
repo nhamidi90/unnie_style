@@ -6,10 +6,9 @@
 "description": "The finger heart gesture was popularized by K-pop idols, who would often use the gesture to express their love and gratitude to their fans. The phrase 내 사랑 (nae sarang) translates to 'my love'. T-shirts are 100% cotton, 165gsm. \\n\\n Size Guide: \\nS: 35/37\" \\nM: 38/40\" \\nL: 41/43\" \\nXL: 44/46\" ", 
 "price": 15, 
 "category": 1, 
-"has_sizes": "Yes",
-"has_color": "Yes",
-"main_image": "sarang_white.webp",
-"other_images" : [1, 2, 3]
+"has_sizes": "True",
+"has_color": "True",
+"main_image": "sarang_white.webp"
 }},
 {"pk": 2, 
 "model": "products.product", 
@@ -19,10 +18,9 @@
 "description": "Our Fearless t-shirt is designed especially for our strong fighters in mind. While it depicts a silhouette of a woman doing martial arts, you certainly don't have to be a martial artist to be fearless. T-shirts are 100% cotton, 165gsm. \\n\\n Size Guide: \\nS: 35/37\" \\nM: 38/40 inch\" \\nL: 41/43\" \\nXL: 44/46\" ", 
 "price": 15, 
 "category": 1, 
-"has_sizes": "Yes",
-"has_color": "Yes",
-"main_image": "fearless_white.webp",
-"other_images" : [4, 5, 6]
+"has_sizes": "True",
+"has_color": "True",
+"main_image": "fearless_white.webp"
 }},
 {"pk": 3, 
 "model": "products.product", 
@@ -32,10 +30,9 @@
 "description": "The japanese expression しょうがない (shouganai) roughly translates to 'it is what it is' or 'it can't be helped'. It is generally used for those situations in which you have no control and is a reminder that even though we don't have control over the situation, we can control our reactions. T-shirts are 100% cotton, 165gsm. \\n\\n Size Guide: \\nS: 35/37\" \\nM: 38/40\" \\nL: 41/43\" \\nXL: 44/46\" ", 
 "price": 15, 
 "category": 1, 
-"has_sizes": "Yes",
-"has_color": "Yes",
-"main_image": "shouganai_tshirt.webp",
-"other_images" : [7]
+"has_sizes": "True",
+"has_color": "True",
+"main_image": "shouganai_tshirt.webp"
 }},
 {"pk": 4, 
 "model": "products.product", 
@@ -45,10 +42,9 @@
 "description": "The japanese expression しょうがない (shouganai) roughly translates to 'it is what it is' or 'it can't be helped'. It is generally used for those situations in which you have no control and is a reminder that even though we don't have control over the situation, we can control our reactions. The dango (japanese dumplings) are an homage to the anime Clannad. 11oz, microwave and dishwasher safe.", 
 "price": 12, 
 "category": 2, 
-"has_sizes": "No",
-"has_color": "No",
-"main_image": "shouganai_mug.webp",
-"other_images" : [8, 9] 
+"has_sizes": "False",
+"has_color": "False",
+"main_image": "shouganai_mug.webp"
 }},
 {"pk": 5, 
 "model": "products.product", 
@@ -58,10 +54,9 @@
 "description": "Perfect for any cat lovers in your life, this cute mug is an ideal gift for any occasion. The design wraps around the whole mug so you can have cats staring at you from all angles! 11oz, microwave and dishwasher safe.", 
 "price": 12, 
 "category": 2, 
-"has_sizes": "No",
-"has_color": "No",
-"main_image": "cute_cat_mug.webp",
-"other_images" : [10, 11]
+"has_sizes": "False",
+"has_color": "False",
+"main_image": "cute_cat_mug.webp"
 }},
 {"pk": 6, 
 "model": "products.product", 
@@ -71,10 +66,9 @@
 "description": "The finger heart gesture was popularized by K-pop idols, who would often use the gesture to express their love and gratitude to their fans. The phrase 내 사랑 (nae sarang) translates to 'my love'. 11oz, microwave and dishwasher safe.",
 "price": 12, 
 "category": 2, 
-"has_sizes": "No",
-"has_color": "No",
-"main_image": "sarang_mug.webp",
-"other_images" : [12, 13]
+"has_sizes": "False",
+"has_color": "False",
+"main_image": "sarang_mug.webp"
 }},
 {"pk": 7, 
 "model": "products.product", 
@@ -84,9 +78,8 @@
 "description": "Enjoy you morning coffee (or cup of tea) with a greeting! It's also great for your cup of hot cocoa before bed. On one side you have 좋은 아침 (joheun achim) which means good morning and on the other, 잘자요 (jal jayo) which means good night. 11oz, microwave and dishwasher safe.", 
 "price": 12, 
 "category": 2, 
-"has_sizes": "No",
-"has_color": "No",
-"main_image": "morning_night_mug.webp",
-"other_images" : [14, 15]
+"has_sizes": "False",
+"has_color": "False",
+"main_image": "morning_night_mug.webp"
 }}
 ]
