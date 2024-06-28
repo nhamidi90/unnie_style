@@ -90,6 +90,14 @@ a.text-black.nav-link.d-block.d-lg-none {
     grid-column: 1 /2;
 }
 
+/* product detail  */
+
+h2 {
+    padding-bottom: 30px;
+    color:#f3bdd9;
+    font-size: 40px;
+}
+
 /* Media queries */
 
 @media (max-width: 400px) {
