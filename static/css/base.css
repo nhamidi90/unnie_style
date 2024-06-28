@@ -97,6 +97,43 @@ h2 {
     color:#f3bdd9;
     font-size: 40px;
 }
+.image-container {
+    overflow-y: hidden;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    padding: 15px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.button-style,
+.input-group,
+.form-control {
+    border: 2px solid;
+    border-color: #f3bdd9;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+    border: 0;
+    text-align: center;
+}
+
+span > input {
+    background: none;
+    padding: 0;
+    border: 0;
+}
 
 /* Media queries */
 
