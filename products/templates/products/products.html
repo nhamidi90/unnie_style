@@ -10,11 +10,29 @@
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid">
+<div class="container-fluid px-5">
     <div class="row">
         <div class="col">
-            {{ products }}
+            <h1 class="header">Products</h1>
         </div>
+    </div>
+    <div class="row mx-4">
+        {% for product in products %}
+            <div class="col-sm-6 col-lg-4">
+                <div class="card border-0">
+                    {% if product.main_image %}
+                        <img src="{{ product.main_image.url }}" alt="{{ product.name }}">
+                    {% else %}
+                        <img src="{{ MEDIA_URL }}no_image.png" alt="{{ product.name }}">
+                    {% endif %}
+                </div>
+                <div class="grid">
+                    <div class="item-1 my-auto">{{ product.name }}</div>
+                    <div class="item-2 my-auto"><i class="fa-regular fa-heart"></i></div>
+                    <div class="item-3 my-auto">£{{ product.price }}</div>
+                </div>
+            </div>
+        {% endfor %}
     </div>
 </div>
 
