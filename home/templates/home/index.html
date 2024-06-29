@@ -14,4 +14,32 @@
         </div>
     </div>
 </div>
+
+<div class="container-fluid pt-5 px-5">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center">See what we have in store for you</h1>
+        </div>
+    </div>
+    <div class="row pt-5 justify-content-center">
+            {% for category in categories %}
+            <div class="col-sm-4">
+                <div class="card">
+                    {% if category.image %}
+                        <a href="{% url 'products' %}?category={{category.name}}">
+                            <img class="img-fluid rounded" src="{{ category.image.url }}" alt="{{ category.friendly_name }}">
+                        </a>
+                    {% else %}
+                        <a href="">
+                            <img class="img-fluid" src="{{ MEDIA_URL }}no_image.png" alt="{{ category.friendly_name }}">
+                        </a>
+                    {% endif %}
+                </div>
+                <div class="text-center pt-2">
+                    <p class="category-text">{{ category.friendly_name }} <i class="fa-solid fa-arrow-right"></i></p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

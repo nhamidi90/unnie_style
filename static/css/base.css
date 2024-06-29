@@ -71,6 +71,10 @@ a:hover {
     border-radius: 4px;
 }
 
+.category-text {
+    font-size: 20px;
+}
+
 /* products page  */
 
 .grid {
@@ -105,6 +109,7 @@ h2 {
     color:#f3bdd9;
     font-size: 40px;
 }
+
 .image-container {
     overflow-y: hidden;
     overflow-x: auto;
