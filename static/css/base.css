@@ -51,6 +51,7 @@ a {
 a:hover {
     color: rgb(66, 22, 108);
 }
+
 /* homepage */
 
 .home-banner {
@@ -109,7 +110,7 @@ h2 {
     overflow-x: auto;
     flex-wrap: nowrap;
     flex-direction: row;
-    padding: 15px;
+    padding: 15px 0 15px 0;
     margin-left: 0;
     margin-right: 0;
 }
@@ -119,6 +120,13 @@ h2 {
 .form-control {
     border: 2px solid;
     border-color: #f3bdd9;
+}
+
+.small-image {
+    height: auto; 
+    width: auto; 
+    max-width: 200px; 
+    max-height: 200px;
 }
 
 /* Chrome, Safari, Edge, Opera */

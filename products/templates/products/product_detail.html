@@ -12,10 +12,17 @@
                 <img class="img-fluid" src="{{ MEDIA_URL }}no_image.png" alt="{{ product.name }}">
             {% endif %}
             <div class="row w-100 image-container">
+                {% if product.main_image %}
+                    <img class="small-image px-2" src="{{ product.main_image.url }}" alt="{{ product.name }}">
+                {% else %}
+                    <img class="small-image px-2" src="{{ MEDIA_URL }}no_image.png" alt="{{ product.name }}">
+                {% endif %}
                 {% for image in images %}
-                <div class="col my-auto">
-                    <img src="{{ image.image.url }}" width="200px">   
-                </div>    
+                    {% if product.name == image.product.name %}
+                    <div class="my-auto px-2">
+                        <img src="{{ image.image.url }}" class="small-image" alt="{{ image.product.name }}">   
+                    </div>    
+                    {% endif %}
                 {% endfor %}
             </div> 
         </div>
