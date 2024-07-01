@@ -122,7 +122,8 @@ h2 {
 
 .button-style,
 .input-group,
-.form-control {
+.form-control,
+.sort-select-wrapper {
     border: 2px solid;
     border-color: #f3bdd9;
 }
