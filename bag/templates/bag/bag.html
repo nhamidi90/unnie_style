@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row header-container">
+        <div class="col">
+            <h1>My bag</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {% if bag_items %}
+            <div class="table-responsive"></div>
+            {% else %}
+            <p class="text-center"><strong>Your bag is empty</strong></p>
+            <div class="d-flex justify-content-center">
+            <a href="{% url 'products' %}" class="btn shop-btn">
+                <i class="fas fa-chevron-left"></i>
+            Keep Shopping
+            </a></div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
