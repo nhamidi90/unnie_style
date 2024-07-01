@@ -9,6 +9,26 @@
             <h1 class="header">Products</h1>
         </div>
     </div>
+    <div class="row pb-3">
+        <div class="col-6 col-md-10 d-flex justify-content-center justify-content-md-end">
+            {% if search_term or current_categories or current_sorting != 'None_None' %}
+                <span class="mr-3 my-auto"><a href="{% url 'products' %}">Clear filter</a></span>
+            {% endif %}
+            <div class="sort-select-wrapper w-md-25 rounded">
+                <select id="sort-selector" class="custom-select custom-select-sm rounded border-0 border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                    <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                    <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+                    <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                    <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Alphabetically (A-Z)</option>
+                    <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Alphabetically (Z-A)</option>
+                    <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
+                    <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
+                </select>
+            </div>
+            
+        </div>
+        <div class="col-6 col-md-2 d-flex justify-content-center">{{ products|length }} Products</div>
+    </div>
     <div class="row mx-4">
         {% for product in products %}
             <div class="col-sm-6 col-lg-4">
