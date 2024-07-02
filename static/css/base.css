@@ -193,6 +193,11 @@ a.btn.checkout-btn,
     font-weight: bold;
 }
 
+.update,
+.remove {
+    cursor: pointer;
+}
+
 /* Media queries */
 
 @media (max-width: 400px) {
