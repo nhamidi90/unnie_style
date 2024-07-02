@@ -36,8 +36,8 @@
                         </td>
                         <td>
                             <strong>{{ item.product.name }}</strong>
-                            <p class="mt-1">{% if item.product.has_sizes %}Size:{{item.size|upper}}{% endif %}</p>
-                            <p>{% if item.product.has_color %}Colour:{{item.color}}{% endif %}</p>
+                            <p class="mt-1">{% if item.product.has_sizes %}Size: {{item.size|upper}}{% endif %}</p>
+                            <p>{% if item.product.has_color %}Colour: {{item.color}}{% endif %}</p>
                             <p>£{{ item.product.price }}</p>
                         </td>
                         <td>
