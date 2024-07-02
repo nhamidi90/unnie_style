@@ -1,4 +1,5 @@
 from django.conf import settings
+from decimal import Decimal
 from django.shortcuts import get_object_or_404
 from products.models import Product
 
@@ -20,8 +21,10 @@ def bag_contents(request):
         })
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
-        delivery = settings.STANDARD_DELIVERY
+        delivery = Decimal(settings.STANDARD_DELIVERY)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
+        if total == 0:
+            delivery = 0
     else:
         delivery = 0
         free_delivery_delta = 0
