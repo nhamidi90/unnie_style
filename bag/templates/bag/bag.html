@@ -9,17 +9,73 @@
             <h1>My bag</h1>
         </div>
     </div>
+    {% if free_delivery_delta > 0 %}
+    <div class="row">
+        <div class="col text-center">
+        <p class="p-3 delivery-delta rounded">You are only £{{ free_delivery_delta }} away from free delivery!</p>
+    </div>
+    </div>
+    {% endif %}
     <div class="row">
         <div class="col">
             {% if bag_items %}
-            <div class="table-responsive"></div>
+            <div class="table-responsive">
+                <table class="table table-sm table-borderless">
+                    <thead class="border-bottom">
+                        <tr>
+                            <th>Product</th>
+                            <th></th>
+                            <th>Quantity</th>
+                            <th class="text-right">Total</th>
+                        </tr>
+                    </thead>
+                    {% for item in bag_items %}
+                    <tr>
+                        <td>
+                            <img class="small-image rounded" src="{{ item.product.main_image.url }}">
+                        </td>
+                        <td>
+                            <strong>{{ item.product.name }}</strong>
+                            <p class="mt-1">£{{ item.product.price }}</p>
+                        </td>
+                        <td>
+                            {{ item.quantity }}
+                        </td>
+                        <td class="text-right">
+                            £{{ item.product.price }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    <tr class="border-top">
+                        <td colspan="2"></td>
+                        <td colspan="2"><span class="d-flex justify-content-between"><strong>Subtotal:</strong>£{{ total|floatformat:2 }}</span>
+                            <br>
+                            <span class="d-flex justify-content-between"><strong>Delivery:</strong> £{{ delivery|floatformat:2 }}</span>
+                            <br>
+                            <span class="d-flex justify-content-between"><strong>Total:</strong> £{{ grand_total|floatformat:2 }}</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="row m-5 text-right">
+                <div class="col">
+                    <a href="{% url 'products' %}" class="btn shop-btn mr-4">
+                        <i class="fas fa-chevron-left"></i>
+                    Keep Shopping
+                    </a>
+                    <a href="" class="btn checkout-btn">
+                        Checkout
+                    </a>
+                </div>
+            </div>
             {% else %}
-            <p class="text-center"><strong>Your bag is empty</strong></p>
+            <h2 class="text-center"><strong>Your bag is empty</strong></h2>
             <div class="d-flex justify-content-center">
-            <a href="{% url 'products' %}" class="btn shop-btn">
-                <i class="fas fa-chevron-left"></i>
-            Keep Shopping
-            </a></div>
+                <a href="{% url 'products' %}" class="btn shop-btn">
+                    <i class="fas fa-chevron-left"></i>
+                Keep Shopping
+                </a>
+            </div>
             {% endif %}
         </div>
     </div>
