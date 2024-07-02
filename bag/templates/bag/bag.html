@@ -41,7 +41,7 @@
                             <p>£{{ item.product.price }}</p>
                         </td>
                         <td>
-                            <form method="POST" action="">
+                            <form class="update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
                                 {% csrf_token %}
                                 <div class="form-group">
                                     <div class="input-group rounded">
@@ -51,7 +51,7 @@
                                                     <i class="fas fa-minus fa-sm"></i>
                                             </button>
                                         </div>
-                                        <input class="form-control form-control-sm" type="number" name="quantity" 
+                                        <input class="form-control form-control-sm qty_input" type="number" name="quantity" 
                                             value="{{ item.quantity }}" min="1"
                                             max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
                                         <div class="input-group-append">
@@ -66,8 +66,8 @@
                                     </div>
                                 </div>
                             </form>
-                            <a class="update"><small>Update</small></a>
-                            <a class="remove float-right" id="remove_{{ item.item_id }}" data-size="{{ item.size }}"><small>Remove</small></a>
+                            <a class="update-item"><small>Update</small></a>
+                            <a class="remove-item float-right" id="remove_{{ item.item_id }}" data-size="{{ item.size }}"><small>Remove</small></a>
                         </td>
                         <td class="text-right">
                             £{{ item.product.price }}
@@ -121,13 +121,13 @@
 
 <script type="text/javascript">
     // Update quantity on click
-    $('.update').click(function(e) {
+    $('.update-item').click(function(e) {
         var form = $(this).prev('.update-form');
         form.submit();
     })
 
     // Remove item and reload on click
-    $('.remove').click(function(e) {
+    $('.remove-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
         var size = $(this).data('size');
