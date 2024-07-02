@@ -38,6 +38,7 @@
                     <div class="col-12">
                         <p><strong>Size:</strong></p>
                         <select class="form-control" name="product_size" id='id_product_size'>
+                            <option disabled selected>Select size</option>
                             <option value="s">S</option>
                             <option value="m" selected>M</option>
                             <option value="l">L</option>
@@ -51,6 +52,7 @@
                     <div class="col-12 mt-2">
                         <p><strong>Colour:</strong></p>
                         <select class="form-control" name="product_color" id='id_product_color'>
+                            <option disabled selected>Select colour</option>
                             <option value="black">Black</option>
                             <option value="white">White</option>
                         </select>
@@ -93,7 +95,8 @@
                     <div class="col-12 pt-2">
                         <a class="btn button-style" href="{% url 'products' %}">
                             <i class="fa-solid fa-chevron-left"></i>
-                            Back </a>
+                            Back 
+                        </a>
                     </div>
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     {% endwith %}
