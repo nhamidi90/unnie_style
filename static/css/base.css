@@ -54,6 +54,20 @@ a:hover {
     text-decoration: none;
 }
 
+/* bootstrap toasts  */
+
+.message-container {
+    position: fixed;
+    top: 100px;
+    right: 100px;
+    z-index: 9999;
+}
+
+.custom-toast, 
+.toast-header {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
 /* homepage */
 
 .home-banner {
