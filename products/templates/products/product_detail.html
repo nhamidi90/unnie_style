@@ -46,19 +46,7 @@
                         </select>
                     </div>
                     {% endif %}
-                    
-                    {% with product.has_color as c %}
-                    {% if c %}
-                    <div class="col-12 mt-2">
-                        <p><strong>Colour:</strong></p>
-                        <select class="form-control" name="product_color" id='id_product_color'>
-                            <option disabled selected>Select colour</option>
-                            <option value="black">Black</option>
-                            <option value="white">White</option>
-                        </select>
-                    </div>
-                    {% endif%}
-                    
+
                     <div class="col-12">
                         <p class="mt-2"><strong>Quantity</strong></p>
                         <div class="form-group w-50">
@@ -99,7 +87,6 @@
                         </a>
                     </div>
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                    {% endwith %}
                     {% endwith %}
                 </div>
             </form>

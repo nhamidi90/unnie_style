@@ -26,7 +26,6 @@ class Product(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     has_sizes = models.BooleanField(default=False, null=True, blank=True)
-    has_color = models.BooleanField(default=False, null=True, blank=True)
     main_image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
@@ -41,4 +40,4 @@ class OtherImages(models.Model):
     image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
-            return self.image
+        return self.image
