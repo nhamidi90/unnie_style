@@ -61,6 +61,9 @@ a:hover {
     top: 100px;
     right: 100px;
     z-index: 9999;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 400px;
 }
 
 .custom-toast, 
@@ -68,6 +71,11 @@ a:hover {
     background-color: rgba(255, 255, 255, 0.8);
 }
 
+.checkout {
+    border: 2px solid;
+    background-color: aliceblue;
+    width: 100%;
+}
 /* homepage */
 
 .home-banner {
