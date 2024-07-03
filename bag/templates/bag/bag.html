@@ -42,8 +42,8 @@
                         <td>
                             <form class="update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
                                 {% csrf_token %}
-                                <div class="form-group">
-                                    <div class="input-group rounded">
+                                <div class="form-group row m-0">
+                                    <div class="input-group rounded col p-0">
                                         <div class="input-group-prepend">
                                             <button class="decrement-qty btn btn-sm" data-item_id="{{ item.item_id }}"
                                                 id="decrement-qty_{{ item.item_id }}">
@@ -63,10 +63,15 @@
                                             <input type="hidden" name="product_size" value="{{ item.size }}">
                                         {% endif %}
                                     </div>
+                                    <div class="d-inline-block ml-5 mr-3 my-auto">
+                                        <a class="remove float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </a>
+                                </div>
                                 </div>
                             </form>
                             <a class="update"><small>Update</small></a>
-                            <a class="remove float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
+
                         </td>
                         <td class="text-right">
                             £{{ item.product.price | calc_subtotal:item.quantity }}
