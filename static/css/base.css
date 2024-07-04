@@ -204,7 +204,8 @@ span > input {
 /* bag  */
 
 a.btn.checkout-btn, 
-.delivery-delta {
+.delivery-delta,
+button#submit-button {
     background-color: #f3bdd9;
     border: 2px solid;
     border-color: rgb(66, 22, 108);
