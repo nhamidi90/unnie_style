@@ -1,5 +1,6 @@
 import uuid
 
+from decimal import Decimal
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
@@ -38,7 +39,7 @@ class Order(models.Model):
         """
         self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
         if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
-            self.delivery_cost = settings.STANDARD_DELIVERY
+            self.delivery_cost = Decimal(settings.STANDARD_DELIVERY)
             if self.order_total == 0:
                 self.delivery_cost = 0
         else:
