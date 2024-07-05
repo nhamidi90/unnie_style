@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row header-container">
+        <div class="col">
+            <h1>Thank you for your order!</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p>Your order was successful! Your order number is <strong>{{ order.order_number }}</strong>. 
+                A confirmation email has been sent to <strong>{{ order.email}}</strong></p>
+            <p>
+                <a href="{% url 'view_bag' %}" class="btn shop-btn">
+                    <i class="fas fa-chevron-left"></i>
+                    Go ba
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
