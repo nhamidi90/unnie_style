@@ -221,6 +221,12 @@ button#submit-button {
     cursor: pointer;
 }
 
+/* checkout success  */
+
+.items {
+    color:#975591
+}
+
 /* Media queries */
 
 @media (max-width: 400px) {
