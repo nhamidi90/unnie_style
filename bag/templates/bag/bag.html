@@ -6,7 +6,8 @@
 <div class="container">
     <div class="row header-container">
         <div class="col">
-            <h1>My bag</h1>
+            <h1 class="bag-header">My bag <img class="heart" src="{{ MEDIA_URL }}heart.png" 
+                alt="heart image"></h1>
         </div>
     </div>
     {% if free_delivery_delta > 0 %}
@@ -32,7 +33,12 @@
                     {% for item in bag_items %}
                     <tr>
                         <td>
-                            <img class="small-image rounded" src="{{ item.product.main_image.url }}">
+                            {% if item.product.main_image %}
+                            <img class="small-image rounded" src="{{ item.product.main_image.url }}" 
+                            alt="{{ item.product.name}}">
+                            {% else %}
+                            <img class="small-image rounded" src="{{ MEDIA_URL }}no_image.png" alt="{{ item.product.name}}">
+                            {% endif %}
                         </td>
                         <td>
                             <strong>{{ item.product.name }}</strong>
