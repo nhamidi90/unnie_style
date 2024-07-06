@@ -21,7 +21,7 @@ body {
     margin-top: 20px;
     margin-bottom: 20px;
     width: 100%;
-    padding-left: 200px;
+    padding-left: 150px;
 }
 
 #logo {
@@ -52,6 +52,10 @@ a {
 a:hover {
     color: rgb(66, 22, 108);
     text-decoration: none;
+}
+
+img.heart {
+    width: 30px;
 }
 
 /* bootstrap toasts  */
@@ -202,6 +206,11 @@ span > input {
 }
 
 /* bag  */
+
+.bag-header,
+.checkout-header {
+    padding-left: 100px;
+}
 
 a.btn.checkout-btn, 
 .delivery-delta,
