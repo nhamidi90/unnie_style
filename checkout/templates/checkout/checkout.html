@@ -74,12 +74,12 @@
                     {{ order_form.country | as_crispy_field }}
                     <div class="form-check form-check-inline float-right">
                         {% if user.is_authenticated %}
-                            <label class="form-check-label mr-2" for="id-save-info">Save this address</label>
+                            <label class="form-check-label mr-2" for="id-save-info">Save this order information</label>
                             <input class="form-check-input" type="checkbox" id="id-save-info" name="save-info" checked>
                         {% else %}
                         <label class="form-check-label" for="id-save-info">
                             <a href="{% url 'account_login' %}"> Sign in</a> or 
-                            <a href="{% url 'account_signup' %}">create an account</a> to save this address
+                            <a href="{% url 'account_signup' %}">create an account</a> to save this order information
                         </label>
                         {% endif %}
                     </div>
@@ -88,6 +88,7 @@
                     <legend class="small"><strong>Payment</strong></legend>
                     <div class="mb-3 form-control" id="card-element"></div>
                     <div class="text-danger mb-3" id="card-errors" role="alert"></div>
+                    <input type="hidden" value="{{ client_secret }}" name="client_secret">
                 </fieldset>
                 <div>
                     <a href="{% url 'view_bag' %}" class="btn shop-btn">
