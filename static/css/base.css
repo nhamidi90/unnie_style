@@ -232,6 +232,7 @@ button#submit-button {
 }
 
 /* checkout  */
+
 #loading-overlay {
 	display: none;
 	position: fixed;
@@ -249,6 +250,25 @@ button#submit-button {
     justify-content: center;
     margin: 0;
     height: 100%;
+}
+
+.stripe-style-input::placeholder {
+    color: #aab7c4;
+}
+
+.stripe-style-input:focus {
+    box-shadow: none;
+    border:2px solid #f3bdd9;
+}
+
+select, 
+select option {
+    color: #000000;
+}
+
+select:invalid,
+select option[value=""] {
+    color: #aab7c4 !important;
 }
 
 /* from Bulma  */
