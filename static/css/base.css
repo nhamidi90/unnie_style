@@ -215,7 +215,9 @@ span > input {
 
 a.btn.checkout-btn, 
 .delivery-delta,
-button#submit-button {
+button#submit-button,
+button,
+input.btn {
     background-color: #f3bdd9;
     border: 2px solid;
     border-color: rgb(66, 22, 108);
@@ -284,6 +286,12 @@ select option[value=""] {
 
 .items {
     color:#975591
+}
+
+/* Allauth form formatting */
+
+.allauth-form-inner-content label:not([for='id_remember']) {
+    display: none;
 }
 
 /* Media queries */
