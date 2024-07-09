@@ -55,3 +55,10 @@ def edit_address(request, address_id):
     }
 
     return render(request, template, context)
+
+
+def delete_address(request, address_id):
+    """ Delete an address """
+    address = get_object_or_404(Addresses, pk=address_id)
+    address.delete()
+    return redirect(reverse('profile'))
