@@ -25,7 +25,7 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     instance.userprofile.save()
 
 
-class Address(models.Model):
+class Addresses(models.Model):
     """
     Model for addresses
     """
