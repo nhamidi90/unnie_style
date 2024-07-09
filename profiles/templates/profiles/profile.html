@@ -16,7 +16,26 @@
 
     <div class="row">
         <div class="col">
-            {{ profile}}
+            {{ orders }}
         </div>
     </div>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <p>Add a new address:</p>
+            <form action="{% url 'profile' %}" method="POST" id="add-address">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <p>
+                <label class="form-check-label" for="id-save-info">Set as default address</label>
+                <input class="form-check-input ml-4" type="checkbox" id="id-save-address" name="save-address">
+                </p>
+                <p><button class="button rounded p-2">Add address</button></p>
+            </form>
+        </div>
+        <div class="col">
+            {{ addresses }}
+        </div>
+    </div>
+    {{ profile }}
 {% endblock %}
