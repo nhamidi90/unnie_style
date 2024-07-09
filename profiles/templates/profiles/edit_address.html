@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row header-container">
+        <div class="col">
+            <h1 class="checkout-header">Edit address <img class="heart" src="{{ MEDIA_URL }}heart.png" 
+                alt="heart image"></h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <form action="{% url 'edit_address' address.id %}" method="POST" id="add-address">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <p>
+                <label class="form-check-label" for="id-save-info">Set as default address</label>
+                <input class="form-check-input ml-4" type="checkbox" id="id-save-address" name="save-address">
+                </p>
+                <p><a href="{% url 'profile' %}" class="btn shop-btn mr-4">
+                    <i class="fas fa-chevron-left"></i>
+                Back to profile
+                </a>
+                <button class="button rounded p-2">Update address</button></p>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -32,3 +32,26 @@ def profile(request):
         'form': form,
     }
     return render(request, template, context)
+
+
+def edit_address(request, address_id):
+    """ Edit an address """
+    address = get_object_or_404(Addresses, pk=address_id)
+
+    if request.method == 'POST':
+        form = AddressForm(request.POST, instance=address)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('profile'))
+        else:
+            messages.error(request, 'Unable to update address. Please try again')
+    else:
+        form = AddressForm(instance=address)
+
+    template = 'profiles/edit_address.html'
+    context = {
+        'address': address,
+        'form': form,
+    }
+
+    return render(request, template, context)
