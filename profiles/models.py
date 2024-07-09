@@ -29,6 +29,9 @@ class Addresses(models.Model):
     """
     Model for addresses
     """
+    class Meta:
+        verbose_name_plural='Addresses'
+
     user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE, null=True, blank=True)
     street_address1 = models.CharField(max_length=80, null=True, blank=True)
     street_address2 = models.CharField(max_length=80, null=True, blank=True)

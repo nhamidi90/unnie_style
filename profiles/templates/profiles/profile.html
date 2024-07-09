@@ -21,7 +21,7 @@
     </div>
     <hr>
     <div class="row">
-        <div class="col">
+        <div class="col-12 col-md-6">
             <p>Add a new address:</p>
             <form action="{% url 'profile' %}" method="POST" id="add-address">
                 {% csrf_token %}
@@ -33,9 +33,21 @@
                 <p><button class="button rounded p-2">Add address</button></p>
             </form>
         </div>
-        <div class="col">
-            {{ addresses }}
+        <div class="col-12 col-md-6">
+            <p>My addresses:</p>
+            {% for ad in addresses %}
+            <div class="p-2">
+                {{ ad.street_address1 }}
+                {% if ad.street_address2 %}<br>{{ ad.street_address2 }}{% endif %}
+                <br>{{ ad.town_or_city }}
+                {% if ad.county %}<br>{{ ad.county }}{% endif %}
+                <br>{{ ad.postcode }}
+                <br>{{ ad.country }}
+                <p>Edit | Delete</p>
+                <hr>
+            </div>
+            {% endfor %}
+            
         </div>
     </div>
-    {{ profile }}
 {% endblock %}
