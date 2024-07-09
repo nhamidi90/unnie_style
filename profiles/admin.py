@@ -1,7 +1,13 @@
 from django.contrib import admin
-from .models import Addresses
+from .models import Addresses, UserProfile
 
 # Register your models here.
+class UserProfileAdmin(admin.ModelAdmin):
+    list_display = (
+    'user',
+        'phone_number',
+    )
+
 class AddressesAdmin(admin.ModelAdmin):
     list_display = (
         'street_address1', 
@@ -14,3 +20,4 @@ class AddressesAdmin(admin.ModelAdmin):
     )
 
 admin.site.register(Addresses, AddressesAdmin)
+admin.site.register(UserProfile, UserProfileAdmin)

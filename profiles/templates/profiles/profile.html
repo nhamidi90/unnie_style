@@ -15,14 +15,22 @@
     </div>
 
     <div class="row">
-        <div class="col">
-            {{ orders }}
+        <div class="col-12 col-md-6">
+            <p><strong>My details:</strong></p>
+            <p>Username: {{ profile }}
+            <br>Phone number: {{ profile.phone_number }}
+            <br>Email address: {{ user.email }}
+            </p>
+        </div>
+        <div class="col-12 col-md-6">
+            
+            
         </div>
     </div>
     <hr>
     <div class="row">
         <div class="col-12 col-md-6">
-            <p>Add a new address:</p>
+            <p><strong>Add a new address:</strong></p>
             <form action="{% url 'profile' %}" method="POST" id="add-address">
                 {% csrf_token %}
                 {{ form | crispy }}
@@ -34,14 +42,14 @@
             </form>
         </div>
         <div class="col-12 col-md-6">
-            <p>My addresses:</p>
+            <p><strong>My addresses:</strong></p>
             {% for ad in addresses %}
             <div class="p-2">
                 {{ ad.street_address1 }}
                 {% if ad.street_address2 %}<br>{{ ad.street_address2 }}{% endif %}
-                <br>{{ ad.town_or_city }}
+                {% if ad.town_or_city %}<br>{{ ad.town_or_city }}{% endif %}
                 {% if ad.county %}<br>{{ ad.county }}{% endif %}
-                <br>{{ ad.postcode }}
+                {% if ad.postcode %}<br>{{ ad.postcode }}{% endif %}
                 <br>{{ ad.country }}
                 <p>Edit | Delete</p>
                 <hr>
