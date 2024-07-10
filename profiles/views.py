@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 
 from .models import UserProfile, Addresses
+from checkout.models import Order
 from .forms import AddressForm
 
 
@@ -11,6 +12,7 @@ def profile(request):
     new address"""
     profile = get_object_or_404(UserProfile, user=request.user)
     addresses = Addresses.objects.all()
+    orders = profile.orders.all()
 
     if request.method == 'POST':
         form = AddressForm(request.POST)
@@ -30,6 +32,7 @@ def profile(request):
         'profile': profile,
         'addresses': addresses,
         'form': form,
+        'orders': orders,
     }
     return render(request, template, context)
 
@@ -62,3 +65,15 @@ def delete_address(request, address_id):
     address = get_object_or_404(Addresses, pk=address_id)
     address.delete()
     return redirect(reverse('profile'))
+
+
+def order_history(request, order_number):
+    order = get_object_or_404(Order, order_number=order_number)
+
+    template = 'checkout/checkout_success.html'
+    context = {
+        'order': order,
+        'from_profile': True
+    }
+
+    return render(request, template, context)

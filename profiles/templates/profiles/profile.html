@@ -15,22 +15,60 @@
     </div>
 
     <div class="row">
-        <div class="col-12 col-md-6">
+        <div class="col-12">
             <p><strong>My details:</strong></p>
             <p>Username: {{ profile }}
             <br>Phone number: {{ profile.phone_number }}
             <br>Email address: {{ user.email }}
             </p>
         </div>
-        <div class="col-12 col-md-6">
-            
-            
+    </div>
+    <div class="row border">
+        <div class="col-12">
+            <p class="pt-4"><strong>Order history:</strong></p>
+            <div class="order-history">
+                <table class="table mt-4">
+                    <thead>
+                        <tr>
+                            <th class="border-top-0">Order number</th>
+                            <th class="border-top-0">Date</th>
+                            <th class="border-top-0">Items</th>
+                            <th class="border-top-0">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                            <tr>
+                                <td>
+                                    <a href="{% url 'order_history' order.order_number %}" 
+                                    title="{{ order.order_number }}">{{ order.order_number | truncatechars:8 }}
+                                    </a>
+                                </td>
+                                <td>{{ order.date }}</td>
+                                <td>
+                                    <ul class="list-unstyled">
+                                        {% for item in order.lineitems.all %}
+                                            <li class="small">
+                                                {{ item.product.name }} 
+                                                <br>{% if item.product.has_sizes %}
+                                                    Size- {{ item.product.size|upper }}
+                                                {% endif %}
+                                                Quantity: {{ item.quantity }}
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                                <td>£{{ order.grand_total }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-    <hr>
     <div class="row">
         <div class="col-12 col-md-6">
-            <p><strong>Add a new address:</strong></p>
+            <p class="pt-4"><strong>Add a new address:</strong></p>
             <form action="{% url 'profile' %}" method="POST" id="add-address">
                 {% csrf_token %}
                 {{ form | crispy }}
@@ -42,7 +80,8 @@
             </form>
         </div>
         <div class="col-12 col-md-6">
-            <p><strong>My addresses:</strong></p>
+            <hr class="d-md-none">
+            <p class="pt-4"><strong>My addresses:</strong></p>
             {% for ad in addresses %}
             <div class="p-2">
                 {{ ad.street_address1 }}
@@ -51,7 +90,9 @@
                 {% if ad.county %}<br>{{ ad.county }}{% endif %}
                 {% if ad.postcode %}<br>{{ ad.postcode }}{% endif %}
                 <br>{{ ad.country }}
-                <p>Edit | Delete</p>
+                <p><a href="">Edit</a> | 
+                    <a href="">Delete</a>
+                </p>
                 <hr>
             </div>
             {% endfor %}

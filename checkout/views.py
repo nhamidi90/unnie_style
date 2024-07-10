@@ -6,6 +6,7 @@ from django.conf import settings
 from .forms import OrderForm
 from bag.contexts import bag_contents
 from products.models import Product
+from profiles.models import UserProfile
 from .models import Order, OrderLineItem
 
 import stripe
@@ -121,6 +122,13 @@ def checkout_success(request, order_number):
     """ Handle successful checkouts """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
+
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        # Attach the user's profile to the order
+        order.user_profile = profile
+        order.save()
+
     if 'bag' in request.session:
         del request.session['bag']
 

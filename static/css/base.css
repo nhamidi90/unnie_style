@@ -294,6 +294,13 @@ select option[value=""] {
     display: none;
 }
 
+/* profile  */
+
+.order-history {
+    max-height: 416px;
+    overflow-y: auto;
+}
+
 /* Media queries */
 
 @media (max-width: 400px) {
