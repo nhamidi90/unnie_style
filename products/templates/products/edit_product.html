@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row header-container">
+        <div class="col">
+            <h1 class="checkout-header">Edit Product <img class="heart" src="{{ MEDIA_URL }}heart.png" 
+                alt="heart image"></h1>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12 col-lg-6 order-lg-last">
+            <form method="POST" action="{% url 'edit_product' product.id %}" class="form mb-4" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <p><a href="{% url 'products' %}" class="btn shop-btn mr-4">
+                    Cancel
+                    </a>
+                <button class="button rounded p-2" type="submit">Update product</button>
+            </p>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
