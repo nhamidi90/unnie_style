@@ -109,8 +109,7 @@ img.heart {
 .grid {
     display: grid;
     grid-template-columns: 90% 30px;
-    margin: 15px;
-    padding-bottom: 30px;
+    margin: 10px;
 }
 
 .item-1 {

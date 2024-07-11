@@ -90,6 +90,12 @@
                     {% endwith %}
                 </div>
             </form>
+            <div class="mt-5">
+                {% if request.user.is_superuser %}
+                    <span class="mr-3"><a href="{% url 'edit_product' product.id %}"> Edit</a></span> |
+                    <span class="ml-3"><a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a></span>
+                {% endif %}
+            </div>
         </div>
     </div>
 </div>
