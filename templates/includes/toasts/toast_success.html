@@ -16,7 +16,11 @@
             {% for item in  bag_items %}
             <div class="row mb-1">
                 <div class="col">
-                    <img class="w-100" src="{{ item.product.main_image.url }}">
+                    {% if item.product.main_image %}
+                        <img class="w-100" src="{{ item.product.main_image.url }}" alt="{{ item.product.name }}">
+                    {% else %}
+                        <img class="w-100" src="{{ MEDIA_URL }}no_image.png" alt="{{ item.product.name }}">
+                    {% endif %}
                 </div>
                 <div class="col">
                     <p>{{ item.product.name }}{% if item.product.has_sizes %} - 
