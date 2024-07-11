@@ -150,6 +150,25 @@ img.heart {
     cursor: pointer;
 }
 
+/* products form  */
+
+#id_price {
+    text-align: left;
+}
+
+.btn-file {
+    position: relative;
+}
+
+.btn-file input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
 /* product detail  */
 
 h2 {
@@ -176,10 +195,6 @@ h2 {
 .shop-btn {
     border: 2px solid;
     border-color: #f3bdd9;
-}
-
-#id_price {
-    text-align: left;
 }
 
 .small-image {
