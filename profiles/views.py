@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from .models import UserProfile, Addresses
 from checkout.models import Order
@@ -7,6 +8,7 @@ from .forms import AddressForm
 
 
 # Create your views here.
+@login_required
 def profile(request):
     """ Display user's profile and addresses including ability to add 
     new address"""
@@ -37,6 +39,7 @@ def profile(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_address(request, address_id):
     """ Edit an address """
     address = get_object_or_404(Addresses, pk=address_id)
@@ -60,6 +63,7 @@ def edit_address(request, address_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_address(request, address_id):
     """ Delete an address """
     address = get_object_or_404(Addresses, pk=address_id)
