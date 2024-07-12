@@ -13,13 +13,15 @@ def profile(request):
     """ Display user's profile and addresses including ability to add 
     new address"""
     profile = get_object_or_404(UserProfile, user=request.user)
-    addresses = Addresses.objects.all()
+    addresses = Addresses.objects.filter(user_profile=profile)
     orders = profile.orders.all()
 
     if request.method == 'POST':
         form = AddressForm(request.POST)
         if form.is_valid:
-            form.save()
+            address = form.save(commit=False)
+            address.user_profile = profile
+            address.save()
 
             return redirect(reverse('profile'))
         else:
