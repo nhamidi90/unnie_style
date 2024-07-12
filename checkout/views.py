@@ -4,9 +4,10 @@ from django.contrib import messages
 from django.conf import settings
 
 from .forms import OrderForm
+from profiles.forms import AddressForm
 from bag.contexts import bag_contents
 from products.models import Product
-from profiles.models import UserProfile
+from profiles.models import UserProfile, Addresses
 from .models import Order, OrderLineItem
 
 import stripe
@@ -48,6 +49,15 @@ def checkout(request):
             'postcode': request.POST['postcode'],
             'country': request.POST['country'],
         }
+        address_data = {
+            'street_address1': request.POST['street_address1'],
+            'street_address2': request.POST['street_address2'],
+            'town_or_city': request.POST['town_or_city'],
+            'county': request.POST['county'],
+            'postcode': request.POST['postcode'],
+            'country': request.POST['country'],
+        }
+        address_form = AddressForm(address_data)
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save(commit=False)
@@ -55,6 +65,7 @@ def checkout(request):
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
             order.save()
+
             for item_id, item_data in bag.items():
                 try:
                     product = Product.objects.get(id=item_id)
@@ -82,7 +93,8 @@ def checkout(request):
                     order.delete()
                     return redirect(reverse('view_bag'))
 
-            request.session['save_info'] = 'save-info' in request.POST
+            request.session['save_info'] = 'save_info' in request.POST
+            print('SAVE_INFO: ', request.session['save_info'])
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
@@ -128,6 +140,23 @@ def checkout_success(request, order_number):
         # Attach the user's profile to the order
         order.user_profile = profile
         order.save()
+
+        if save_info:
+            print('IN SAVE INFO BLOCK')
+            address_data = {
+            'street_address1': order.street_address1,
+            'street_address2': order.street_address2,
+            'town_or_city': order.town_or_city,
+            'county': order.county,
+            'postcode': order.postcode,
+            'country': order.country,
+            }
+
+            address_form = AddressForm(data=address_data)
+            if address_form.is_valid():
+                address = address_form.save(commit=False)
+                address.user_profile = profile
+                address.save()
 
     if 'bag' in request.session:
         del request.session['bag']

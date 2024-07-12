@@ -73,8 +73,8 @@
                 {% csrf_token %}
                 {{ form | crispy }}
                 <p>
-                <label class="form-check-label" for="id-save-address">Set as default address</label>
-                <input class="form-check-input ml-4" type="checkbox" id="id-save-address" name="save-address">
+                <label class="form-check-label" for="id_default_address">Set as default address</label>
+                <input class="form-check-input ml-4" type="checkbox" id="id_default_address" name="default_address" value="True">
                 </p>
                 <p><button class="button rounded p-2">Add address</button></p>
             </form>
