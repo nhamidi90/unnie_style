@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from .models import Wishlist
 from profiles.models import UserProfile
 
@@ -15,3 +15,11 @@ def wishlist(request):
         'wishlist': wishlist,
     }
     return render(request, template, context)
+
+def delete_wish(request, wishlist_id):
+    """ Delete item from wishlist """
+    
+    wishlist = get_object_or_404(Wishlist, pk=wishlist_id)
+    wishlist.delete()
+
+    return redirect(reverse('wishlist'))
