@@ -66,20 +66,20 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row mt-5">
         <div class="col-12 col-md-6">
             <p class="pt-4"><strong>Add a new address:</strong></p>
             <form action="{% url 'profile' %}" method="POST" id="add-address">
                 {% csrf_token %}
                 {{ form | crispy }}
-                <p>
+                <!-- <p>
                 <label class="form-check-label" for="id_default_address">Set as default address</label>
                 <input class="form-check-input ml-4" type="checkbox" id="id_default_address" name="default_address" value="True">
-                </p>
+                </p> -->
                 <p><button class="button rounded p-2">Add address</button></p>
             </form>
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6 address-container">
             <hr class="d-md-none">
             <p class="pt-4"><strong>My addresses:</strong></p>
             {% for ad in addresses %}
@@ -90,13 +90,12 @@
                 {% if ad.county %}<br>{{ ad.county }}{% endif %}
                 {% if ad.postcode %}<br>{{ ad.postcode }}{% endif %}
                 <br>{{ ad.country }}
-                <p><a href="">Edit</a> | 
-                    <a href="">Delete</a>
+                <p><a href="{% url 'edit_address' ad.id %}">Edit</a> | 
+                    <a href="{% url 'delete_address' ad.id %}">Delete</a>
                 </p>
                 <hr>
             </div>
             {% endfor %}
-            
         </div>
     </div>
 {% endblock %}
