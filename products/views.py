@@ -165,11 +165,10 @@ def add_to_wishlist(request, product_id):
             wishlist.user_profile = profile
             wishlist.save()
             messages.success(request, 'Successfully added product to your wishlist')
-            return redirect(reverse('products'))
+            return redirect(reverse('wishlist'))
         else:
             messages.error(request, 'Product could not be added. Please make \
                 sure the form is valid')
     else:
         form = WishlistForm(instance=product)
-    
-    return redirect(reverse('products'))
+
