@@ -317,7 +317,8 @@ select option[value=""] {
 
 /* profile  */
 
-.order-history {
+.order-history,
+.address-container {
     max-height: 416px;
     overflow-y: auto;
 }
