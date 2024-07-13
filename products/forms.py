@@ -1,6 +1,7 @@
 from django import forms
 from .widgets import CustomClearableFileInput
-from .models import Product, Category
+from .models import Product, Category, OtherImages
+from wishlist.models import Wishlist
 
 
 class ProductForm(forms.ModelForm):
@@ -9,7 +10,7 @@ class ProductForm(forms.ModelForm):
         model = Product
         fields = "__all__"
 
-    main_image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
+    main_image = forms.ImageField(label='Main Image', required=False, widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -17,4 +18,18 @@ class ProductForm(forms.ModelForm):
         friendly_name = [(c.id, c.get_friendly_name()) for c in categories]
 
         self.fields['category'].choices = friendly_name
-        
+
+
+class OtherImagesForm(forms.ModelForm):
+
+    class Meta:
+        model = OtherImages
+        fields = ('image',)
+
+    image = forms.ImageField(label='Other Images', required=False, widget=CustomClearableFileInput)
+    
+
+class WishlistForm(forms.ModelForm):
+    class Meta:
+        model = Wishlist
+        fields = '__all__'

@@ -5,7 +5,8 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 
 from .models import Product, OtherImages, Category
-from .forms import ProductForm
+from profiles.models import UserProfile
+from .forms import ProductForm, WishlistForm
 
 # Create your views here.
 def all_products(request):
@@ -144,4 +145,31 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product deleted')
 
+    return redirect(reverse('products'))
+
+
+@login_required
+def add_to_wishlist(request, product_id):
+    """ Add product to user's wishlist """
+    profile = get_object_or_404(UserProfile, user=request.user)
+    product = get_object_or_404(Product, pk=product_id)
+
+    if request.method == 'POST':
+
+        wishlist_data = {
+            'products': product.id,
+        }
+        form = WishlistForm(wishlist_data)
+        if form.is_valid():
+            wishlist = form.save(commit=False)
+            wishlist.user_profile = profile
+            wishlist.save()
+            messages.success(request, 'Successfully added product to your wishlist')
+            return redirect(reverse('products'))
+        else:
+            messages.error(request, 'Product could not be added. Please make \
+                sure the form is valid')
+    else:
+        form = WishlistForm(instance=product)
+    
     return redirect(reverse('products'))
