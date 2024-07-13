@@ -7,6 +7,3 @@ class Wishlist(models.Model):
     """Wishlist model"""
     products = models.ForeignKey(Product, null=True, blank=True, on_delete=models.CASCADE)
     user_profile = models.ForeignKey(UserProfile, null=True, blank=True, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.name
