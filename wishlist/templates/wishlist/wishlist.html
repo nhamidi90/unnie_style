@@ -15,12 +15,9 @@
             <div class="col-sm-6 col-lg-3">
                 <div class="card border-0">
                     {% if wish.products.main_image %}
-                        <a href="">
-                            <img class="img-fluid" src="{{ wish.products.main_image.url }}" alt="{{ wish.products.name }}">
-                        </a>
+                        <img class="img-fluid" src="{{ wish.products.main_image.url }}" alt="{{ wish.products.name }}">
                     {% else %}
-                        <a href="">
-                            <img class="img-fluid" src="{{ MEDIA_URL }}no_image.png" alt="{{ wish.products.name }}">
+                        <img class="img-fluid" src="{{ MEDIA_URL }}no_image.png" alt="{{ wish.products.name }}">
                         </a>
                     {% endif %}
                 </div>
@@ -31,9 +28,10 @@
                     </div>
                     <div>£{{ wish.products.price }}</div>
                 </div>
-                <div class="d-flex justify-content-between mb-2 ml-2 mr-2">
-                    <span><a href="">Go to product page</a></span>
-                    <span><a href="">Add to bag</a></span>
+                <div>
+                    <a class="btn button-style mt-2" href="{% url 'product_detail' wish.products.id %}">
+                        Add to bag <i class="fa-solid fa-bag-shopping"></i>
+                    </a>
                 </div>
             </div>
         {% endfor %}
