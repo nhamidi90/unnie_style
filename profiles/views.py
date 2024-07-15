@@ -52,6 +52,7 @@ def edit_address(request, address_id):
         form = AddressForm(request.POST, instance=address)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Updated address')
             return redirect(reverse('profile'))
         else:
             messages.error(request, 'Unable to update address. Please try again')
