@@ -22,6 +22,7 @@ def profile(request):
             address = form.save(commit=False)
             address.user_profile = profile
             address.save()
+            messages.success(request, 'Address added')
 
             return redirect(reverse('profile'))
         else:
@@ -37,6 +38,7 @@ def profile(request):
         'addresses': addresses,
         'form': form,
         'orders': orders,
+        'on_profile_page': True
     }
     return render(request, template, context)
 

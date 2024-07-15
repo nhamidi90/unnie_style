@@ -1,7 +1,7 @@
 
 <div class="toast custom-toast" data-autohide="false">
     <div class="toast-header text-dark">
-        <strong class="mr-auto">Item added to your bag <i class="fa-solid fa-check ml-2"></i></strong>
+        <strong class="mr-auto">Success <i class="fa-solid fa-check ml-2"></i></strong>
         <button type="button" class="ml-2 mb-1 close text-dark" data-dismiss="toast" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -12,7 +12,7 @@
                 {{ message }}
             </div>
         </div>
-        {% if grand_total %}
+        {% if grand_total and not on_profile_page %}
             {% for item in  bag_items %}
             <div class="row mb-1">
                 <div class="col">
