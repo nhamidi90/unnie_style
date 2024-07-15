@@ -94,7 +94,7 @@ def checkout(request):
                     return redirect(reverse('view_bag'))
 
             request.session['save_info'] = 'save_info' in request.POST
-            print('SAVE_INFO: ', request.session['save_info'])
+
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
@@ -142,7 +142,6 @@ def checkout_success(request, order_number):
         order.save()
 
         if save_info:
-            print('IN SAVE INFO BLOCK')
             address_data = {
             'street_address1': order.street_address1,
             'street_address2': order.street_address2,
