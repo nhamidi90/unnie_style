@@ -1,0 +1,19 @@
+Dear {{ order.full_name }}
+
+Thank you for shopping with Unnie Style. This is a confirmation of your order:
+
+Order Number: {{ order.order_number }}
+Date: {{ order.date }}
+
+Subtotal: £{{ order.order_total }}
+Delivery: £{{ order.delivery_cost }}
+Total: £{{ order.grand_total }}
+
+Your order will be shipped to {{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.country}}
+
+The number you have provided us is {{ order.phone_number }}
+
+If you have any questions, please don't hesistate to contact us at {{ contact_email }}
+
+All the best,
+Unnie Style
