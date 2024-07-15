@@ -86,13 +86,13 @@ img.heart {
 .home-banner {
     background: url('/media/homepage-background.jpg') no-repeat center center;
     background-size: cover;
-    height: 800px;
+    height: 600px;
     position: relative;
 }
 
 .banner-text {
     position: absolute;
-    top: -600px;
+    top: -400px;
     right: 50px;
     width: 250px;
     background-color: rgba(0, 0, 0, 0.1);
