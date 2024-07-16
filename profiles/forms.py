@@ -5,7 +5,11 @@ class AddressForm(forms.ModelForm):
     class Meta:
         model = Addresses
         fields = ('street_address1', 'street_address2', 'town_or_city', 
-                  'county', 'postcode', 'country')
+                  'county', 'postcode', 'country', 'default_address')
+        widgets = {
+            'default_address': forms.CheckboxInput(attrs={'label': 'Set as default address'})
+        }
+
 
     def __init__(self, *args, **kwargs):
         """
@@ -22,11 +26,11 @@ class AddressForm(forms.ModelForm):
         }
 
         self.fields['street_address1'].widget.attrs['autofocus'] = True
-        for field in self.fields:
-            if field != 'country':
-                if self.fields[field].required:
-                    placeholder = f'{placeholders[field]} *'
-                else:
-                    placeholder = placeholders[field]
-                self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].label = False
+        # for field in self.fields:
+        #     if field != 'country':
+        #         if self.fields[field].required:
+        #             placeholder = f'{placeholders[field]} *'
+        #         else:
+        #             placeholder = placeholders[field]
+        #         self.fields[field].widget.attrs['placeholder'] = placeholder
+        #     self.fields[field].label = False

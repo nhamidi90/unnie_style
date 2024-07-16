@@ -19,10 +19,6 @@
             <form action="{% url 'edit_address' address.id %}" method="POST" id="add-address">
                 {% csrf_token %}
                 {{ form | crispy }}
-                <p>
-                <label class="form-check-label" for="id-save-info">Set as default address</label>
-                <input class="form-check-input ml-4" type="checkbox" id="id-save-address" name="save-address">
-                </p>
                 <p><a href="{% url 'profile' %}" class="btn shop-btn mr-4">
                     <i class="fas fa-chevron-left"></i>
                 Back to profile

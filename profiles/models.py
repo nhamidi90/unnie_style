@@ -40,3 +40,9 @@ class Addresses(models.Model):
     postcode = models.CharField(max_length=20, null=True, blank=True)
     country = CountryField(blank_label='Country *', null=True, blank=True)
     default_address = models.BooleanField(default=False, null=True, blank=True)
+
+    
+    def save(self, *args, **kwargs):
+        if self.default_address == True:
+            Addresses.objects.filter(user_profile=self.user_profile, default_address=True).exclude(id=self.id).update(default_address=False)
+        super().save(*args, **kwargs)
