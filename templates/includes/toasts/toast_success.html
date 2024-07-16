@@ -7,15 +7,21 @@
         </button>
     </div>
     <div class="toast-body">
-        <div class="row">
+        <div class="row mt-2 mb-2">
             <div class="col">
                 {{ message }}
             </div>
         </div>
         {% if grand_total and not on_profile_page %}
             {% for item in  bag_items %}
+            <div class="row">
+                <div class="col m-2">
+                    My bag
+                </div>
+            </div>
             <div class="row mb-1">
                 <div class="col">
+                    
                     {% if item.product.main_image %}
                         <img class="w-100" src="{{ item.product.main_image.url }}" alt="{{ item.product.name }}">
                     {% else %}
