@@ -69,14 +69,16 @@
                                             <input type="hidden" name="product_size" value="{{ item.size }}">
                                         {% endif %}
                                     </div>
-                                    <div class="d-inline-block ml-5 mr-3 my-auto">
-                                        <a class="remove float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </a>
-                                </div>
+                                    
                                 </div>
                             </form>
-                            <a class="update"><small>Update</small></a>
+                            <div class="d-flex justify-content-between mx-2">
+                                <a class="update"><small>Update</small></a>
+                                <a class="remove" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                            </div>
+                            
 
                         </td>
                         <td class="text-right">
