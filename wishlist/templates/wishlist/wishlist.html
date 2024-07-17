@@ -5,35 +5,47 @@
 <div class="container">
     <div class="row header-container">
         <div class="col">
-            <h1 class="checkout-header">My wishlist <img class="heart" src="{{ MEDIA_URL }}heart.png" 
-                alt="heart image"></h1>
+            <h1 class="checkout-header">My wishlist <img class="heart" src="{{ MEDIA_URL }}heart.png" alt="heart image">
+            </h1>
         </div>
     </div>
 
     <div class="row">
-        {% for wish in wishlist %}
-            <div class="col-sm-6 col-lg-3">
-                <div class="card border-0">
-                    {% if wish.products.main_image %}
+        <div class="col">
+            {% if wishlist %}
+                {% for wish in wishlist %}
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card border-0">
+                        {% if wish.products.main_image %}
                         <img class="img-fluid" src="{{ wish.products.main_image.url }}" alt="{{ wish.products.name }}">
-                    {% else %}
+                        {% else %}
                         <img class="img-fluid" src="{{ MEDIA_URL }}no_image.png" alt="{{ wish.products.name }}">
                         </a>
-                    {% endif %}
-                </div>
-                <div>
-                    <div class="d-flex justify-content-between pt-2">
-                        <span>{{ wish.products.name }}</span>
-                        <span><a href="{% url 'delete_wish' wish.id %}"><i class="fa-solid fa-trash"></i></a></span>
+                        {% endif %}
                     </div>
-                    <div>£{{ wish.products.price }}</div>
+                    <div>
+                        <div class="d-flex justify-content-between pt-2">
+                            <span>{{ wish.products.name }}</span>
+                            <span><a href="{% url 'delete_wish' wish.id %}"><i class="fa-solid fa-trash"></i></a></span>
+                        </div>
+                        <div>£{{ wish.products.price }}</div>
+                    </div>
+                    <div>
+                        <a class="btn button-style mt-2" href="{% url 'product_detail' wish.products.id %}">
+                            Add to bag <i class="fa-solid fa-bag-shopping"></i>
+                        </a>
+                    </div>
                 </div>
-                <div>
-                    <a class="btn button-style mt-2" href="{% url 'product_detail' wish.products.id %}">
-                        Add to bag <i class="fa-solid fa-bag-shopping"></i>
+                {% endfor %}
+            {% else %}
+                <h2 class="text-center"><strong>Your wishlist is empty</strong></h2>
+                <div class="d-flex justify-content-center">
+                    <a href="{% url 'products' %}" class="btn shop-btn">
+                        <i class="fas fa-chevron-left"></i>
+                        Add something!
                     </a>
                 </div>
-            </div>
-        {% endfor %}
+            {% endif %}
+        </div>
     </div>
-{% endblock %}
+    {% endblock %}
