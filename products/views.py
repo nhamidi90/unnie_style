@@ -6,13 +6,15 @@ from django.db.models.functions import Lower
 
 from .models import Product, OtherImages, Category
 from profiles.models import UserProfile
-from .forms import ProductForm, WishlistForm
+from wishlist.models import Wishlist
+from .forms import ProductForm
 
 # Create your views here.
 def all_products(request):
     """ A view to return all products including sorting and searching """
 
     products = Product.objects.all()
+
     query = None
     category = None
     sort = None
@@ -153,22 +155,12 @@ def add_to_wishlist(request, product_id):
     """ Add product to user's wishlist """
     profile = get_object_or_404(UserProfile, user=request.user)
     product = get_object_or_404(Product, pk=product_id)
-
-    if request.method == 'POST':
-
-        wishlist_data = {
-            'products': product.id,
-        }
-        form = WishlistForm(wishlist_data)
-        if form.is_valid():
-            wishlist = form.save(commit=False)
-            wishlist.user_profile = profile
-            wishlist.save()
-            messages.success(request, 'Successfully added product to your wishlist')
-            return redirect(reverse('wishlist'))
-        else:
-            messages.error(request, 'Product could not be added. Please make \
-                sure the form is valid')
+    
+    if Wishlist.objects.filter(user_profile=profile, products=product).exists():
+        messages.error(request, 'You have already added this item to your wishlist')
+        return redirect(reverse('products'))
     else:
-        form = WishlistForm(instance=product)
-
+        Wishlist.objects.create(user_profile=profile, products=product)
+        messages.success(request, f'Successfully added {product.name} to your wishlist')
+    
+    return redirect(reverse('wishlist'))
