@@ -7,7 +7,7 @@ class AddressForm(forms.ModelForm):
         fields = ('street_address1', 'street_address2', 'town_or_city', 
                   'county', 'postcode', 'country', 'default_address')
         widgets = {
-            'default_address': forms.CheckboxInput(attrs={'label': 'Set as default address'})
+            'default_address': forms.CheckboxInput()
         }
 
 
@@ -35,3 +35,5 @@ class AddressForm(forms.ModelForm):
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].label = False
+            if field == 'default_address':
+                self.fields[field].label = 'Set as default address'
