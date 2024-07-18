@@ -11,7 +11,7 @@
     </div>
     
     <div class="row">
-        <div class="col-12 col-lg-6 order-lg-last">
+        <div class="col-12 col-lg-6">
             <form method="POST" action="{% url 'add_product' %}" class="form mb-4" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% for field in form %}
@@ -27,6 +27,9 @@
                 <button class="button rounded p-2" type="submit">Add product</button>
                 </div>
             </form>
+        </div>
+        <div class="col">
+            <a href="{% url 'add_product_image' %}">Add other images</a>
         </div>
     </div>
 </div>

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row header-container">
+        <div class="col">
+            <h1 class="checkout-header">Add Product image<img class="heart" src="{{ MEDIA_URL }}heart.png" 
+                alt="heart image"></h1>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            <form method="POST" action="{% url 'add_product_image' %}" class="form mb-4" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for image in image_form %}
+                    {{ image|as_crispy_field }}
+                {% endfor %}
+                <div>
+                    <button class="button rounded p-2" type="submit">Add image</button>
+                </div>
+                <div class="pt-4">
+                    <a href="{% url 'add_product' %}" class="btn shop-btn mr-4">
+                        Back to add product
+                    </a>
+                    <a href="{% url 'products' %}" class="btn shop-btn mr-4">
+                        Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.user }}
+    <script type="text/javascript">
+        $('#new-image').change(function() {
+            var file = $('#new-image')[0].files[0];
+            $('#filename').text(`Image will be set to ${file.name}`);
+        });
+    </script>
+{% endblock %}

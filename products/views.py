@@ -7,7 +7,7 @@ from django.db.models.functions import Lower
 from .models import Product, OtherImages, Category
 from profiles.models import UserProfile
 from wishlist.models import Wishlist
-from .forms import ProductForm
+from .forms import ProductForm, OtherImagesForm
 
 # Create your views here.
 def all_products(request):
@@ -80,6 +80,7 @@ def product_detail(request, product_id):
 @login_required
 def add_product(request):
     """ Add a new product to the database """
+
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can add a product')
         return redirect(reverse('home'))
@@ -87,20 +88,49 @@ def add_product(request):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
-            product = form.save()
+            form.save()
             messages.success(request, 'Successfully added product')
-            return redirect(reverse('product_detail', args=[product.id]))
+            return redirect(reverse('add_product'))
         else:
             messages.error(request, 'Product could not be added. Please make \
                 sure the form is valid')
     else:
         form = ProductForm()
+
     template = 'products/add_product.html'
 
     context = {
         'form': form,
     }
 
+    return render(request, template, context)
+
+
+@login_required
+def add_product_image(request):
+    """ Add product image """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can add a product')
+        return redirect(reverse('home'))
+    
+    if request.method == 'POST':
+        image_form = OtherImagesForm(request.POST, request.FILES)
+        if image_form.is_valid():
+            image_form.save()
+            messages.success(request, f'Successfully added image')
+            return redirect(reverse('products'))
+        else:
+            messages.error(request, 'Images could not be added. Please make \
+                sure the form is valid')
+    else:
+        image_form = OtherImagesForm()
+
+    template = 'products/add_product_image.html'
+
+    context = {
+        'image_form': image_form,
+    }
     return render(request, template, context)
 
 
