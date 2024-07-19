@@ -27,9 +27,3 @@ class OtherImagesForm(forms.ModelForm):
         fields = '__all__'
 
     image = forms.ImageField(label='Other Images', required=False, widget=CustomClearableFileInput)
-
-
-class WishlistForm(forms.ModelForm):
-    class Meta:
-        model = Wishlist
-        fields = '__all__'
