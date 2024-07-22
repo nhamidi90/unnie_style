@@ -23,6 +23,6 @@ class OtherImagesForm(forms.ModelForm):
 
     class Meta:
         model = OtherImages
-        exclude = ('product',)
+        fields = "__all__"
 
     image = forms.ImageField(label='Other Images', required=False, widget=CustomClearableFileInput)
