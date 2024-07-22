@@ -5,33 +5,28 @@
 <div class="container">
     <div class="row header-container">
         <div class="col">
-            <h1 class="checkout-header">Edit Product <img class="heart" src="{{ MEDIA_URL }}heart.png" 
+            <h1 class="checkout-header">Edit Product images <img class="heart" src="{{ MEDIA_URL }}heart.png" 
                 alt="heart image"></h1>
         </div>
     </div>
     
     <div class="row">
+        {% for image in images %}
         <div class="col-12 col-lg-6">
-            <form method="POST" action="{% url 'edit_product' product.id %}" class="form mb-4" enctype="multipart/form-data">
+            <form method="POST" action="{% url 'edit_product_image' image.product.id %}" class="form mb-4" enctype="multipart/form-data">
                 {% csrf_token %}
-                {% for field in form %}
-                    {% if field.name != 'image' %}
-                        {{ field|as_crispy_field }}
-                    {% else %}
-                        {{ field }}
-                    {% endif %}
+                {% for image in image_form %}
+                    {{ image|as_crispy_field }}
                 {% endfor %}
                 <div>
+                    <button class="button rounded p-2" type="submit">Update images</button>
                     <a href="{% url 'products' %}" class="btn shop-btn mr-4">
-                    Cancel
+                        Cancel
                     </a>
-                    <button class="button rounded p-2" type="submit">Update product</button>
                 </div>
             </form>
         </div>
-        <div class="col">
-            <a href="{% url 'edit_product_image' product.id %}">Edit images</a>
-        </div>
+        {% endfor %}
     </div>
 </div>
 

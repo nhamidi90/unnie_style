@@ -166,6 +166,39 @@ def edit_product(request, product_id):
 
 
 @login_required
+def edit_product_image(request, product_id):
+    """ Edit a product's images"""
+    product = get_object_or_404(Product, pk=product_id)
+    images = OtherImages.objects.filter(product=product)
+
+    # image = get_object_or_404(images, image=image_id)
+
+    # print('product: ', product)
+    # print('images: ', images)
+
+    if request.method == 'POST':
+        image_form = OtherImagesForm(request.POST, request.FILES, instance=product)
+        if image_form.is_valid:
+            image_form.save()
+            messages.success(request, 'Images successfully updated')
+            return redirect(reverse('products'))
+        else:
+            messages.error(request, 'Failed to update images. Please ensure \
+                           the form is valid')
+    else:
+        image_form = OtherImagesForm(instance=product)
+
+    template = 'products/edit_product_image.html'
+
+    context = {
+        'image_form': image_form,
+        'product': product,
+        'images': images,
+    }       
+    return render(request, template, context)
+
+
+@login_required
 def delete_product(request, product_id):
     """ Delete a product """
     
