@@ -4,6 +4,8 @@
     border: 1px solid;
 } */
 
+/* global settings  */
+
 html {
     height: 100vh;
 }
@@ -22,6 +24,10 @@ body {
     margin-bottom: 20px;
     width: 100%;
     padding-left: 150px;
+}
+
+.header-padding {
+    padding-left: 100px;
 }
 
 #logo {
@@ -132,6 +138,7 @@ img.heart {
 .fa-heart {
     font-size: 25px;
 }
+
 .btt-button {
     height: 45px;
     width: 45px;
@@ -206,14 +213,12 @@ h2 {
     max-height: 200px;
 }
 
-/* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-/* Firefox */
 input[type=number] {
     -moz-appearance: textfield;
     appearance: textfield;
@@ -228,11 +233,6 @@ span > input {
 }
 
 /* bag  */
-
-.bag-header,
-.checkout-header {
-    padding-left: 100px;
-}
 
 a.btn.checkout-btn, 
 .delivery-delta,
@@ -335,6 +335,11 @@ select option[value=""] {
 
     .mobile-icon {
         font-size: 10px; 
+    }
+
+    .header-padding {
+        padding: 0;
+        text-align: center;
     }
 
 }
