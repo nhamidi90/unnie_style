@@ -250,8 +250,8 @@ input.btn {
     font-weight: bold;
 }
 
-.update,
-.remove {
+.update-link,
+.remove-item {
     cursor: pointer;
 }
 
