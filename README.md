@@ -1,131 +1,221 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Unnie Style
 
-Welcome Nabilah Hamidi,
+Unnie Style is an e-commerce website whcih allows visitors to browse and purchase a range of products. It is
+targeted towards those who are interested in the Eastern Asian culture.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+![Screenshot of the website on different devices]()
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+The live link can be found [here]()
 
-## Gitpod Reminders
+## User Stories
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+### As a shopper:
+* I want to be able to see the products the company has to offer so that I can see if there is anything I like
+* I want to be able to add products to my wishlist from the products page so that I can think about buying it later
+* I want to see details of each product including different pictures so that I can make an informed decision on whether I like the product
+* I want to be able to search and filter products using a range of filters so that I can find them easily
+* I want to be able to add items to the bag from the product detail page to start the checkout process
+* I want the checkout process to be quick and easy with all the details of my order emailed to me for proof of purchase
+* I want to be able to edit my bag in case I want to add/remove something
+* I want to see a summary of what I am purchasing to make sure I am buying the correct items
 
-`python3 -m http.server`
+### Registration and accounts:
+* I want to be able to easily register an account so that I can see my profile and create a wishlist
+* I want to be able to easily log in and out so I can access my personal information
+* I want to see my order history so I can reference it if I need to
+* I want to be able to save and edit any addresses to my profile so I can easily access them
 
-A blue button should appear to click: _Make Public_,
+### As an admin:
+* I want to be able to add, edit and delete products and its images in order to keep it updated
 
-Another blue button should appear to click: _Open Browser_.
+## Wireframes
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+Wireframes can be viewed in pdf format [here](documentation/readme/wireframes.pdf) 
 
-A blue button should appear to click: _Make Public_,
+## Features
 
-Another blue button should appear to click: _Open Browser_.
+### Navigation
+* Logo linking to homepage
+* Search bar 
+* Account (Create account/sign in/sign out, view profile, wishlist, add product for admins)
+* Shopping bag
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### Messages
+* Success message with link to bag where applicable
+* Error message
+* Warning message
 
-To log into the Heroku toolbelt CLI:
+### Homepage
+* Hero image
+* Featured categories
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### All products page
+* Shows product image, name and price
+* Users can filter products by category
+* They can also sort products by price or alphabetically
+* Users can add products to their wishlist
+* Admin can edit or delete products
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+### Product detail page
+* Multiple images for product
+* Description
+* Add to bag with quantity selector
+* Add to wishlist
+* Back to products page button
+* Admin can edit or delete product
 
-### Connecting your Mongo database
+### Bag page
+* Thumbnail of product, name, price and option to update quantity or remove from bag
+* Totals are updated as quantity is changed
+* Delivery information
+* Button to keep shopping
+* Button to checkout
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+### Checkout page
+* Form to fill in details and delivery information
+* Users can save address to profile
+* Address is auto populated with default address
+* Stripe payment
+* Order summary
+* Back to bag button
+* Complete order button
 
-------
+### Checkout confirmation page
+* Checkout confirmation
+* Sends details to email
 
-## Release History
+### Authentication pages
+* Provided by allauth
+* Register/login/logout
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+### Profile page
+* User details
+* Order history
+* Add new address with set as default option
+* Saved addresses with edit/delete option
+* Users can only access their own profile
 
-**June 18, 2024,** Add Mongo back into template
+### Wishlist page
+* Picture or product with name and price
+* Each product is unique (no duplicates)
+* Remove from wishlist
+* Add to bag directs to product detail page
+* Users must be logged in
+* users can only access their own wishlist
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+### Add/edit product (admin)
+* Add product
+* Link to add additional images
+* Must be authenticated and admin
 
-**May 28 2024:** Fix Mongo and Links installs
+## Future features
+* I would like to add options to some products so shoppers can select different coloured t-shirts
+* Add more variety of products and categories
+* As the store grows, add more shipping criteria for international deliveries
+* Add reviews section
+* Add social login
+* Contact form for users to contact admin
 
-**April 26 2024:** Update node version to 16
+## Database schema
 
-**September 20 2023:** Update Python version to 3.9.17.
+The following Data models were used:
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+* Product - stores information for each product
+* Category - stores information about product category
+* OtherImages - stores any extra images for each product
+* Order - stores order information
+* OrderLineItem - stores order information for each product
+* UserProfile - stores user information (related to Django Allauth User model, not included in this schema)
+* Addresses - stores any adddresses the user may have
+* Wishlist - stores products that users add to their wishlist
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+This diagram illustrates the models and their relationships
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+![database schema](documentation/readme/models.png)
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+## Technologies used
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+### Languages
+* [HTML](https://en.wikipedia.org/wiki/HTML)
+* [CSS](https://en.wikipedia.org/wiki/CSS)
+* [Javascript](https://en.wikipedia.org/wiki/JavaScript)
+* [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+### Frameworks
+* [Django](https://www.djangoproject.com/)
+* [Jinja](https://jinja.palletsprojects.com/en/3.1.x/)
+* [Jquery](https://jquery.com/)
+* [Bootstrap](https://getbootstrap.com/)
+* [Google fonts](https://fonts.google.com/)
+* [Font awesome](https://fontawesome.com/)
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+### Storage and hosting
+* [Heroku](https://heroku.com/) was used to deploy the site
+* [Github](https://github.com/) was used to store the repository
+* [Amazon web services](https://aws.amazon.com/) was used to host and store static files
+* [Code Institute](https://codeinstitute.net/) Postgres Database was used to host the website's database
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+### Payment
+* [Stripe](https://stripe.com/gb) was used to make payments
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+### IDE and version control
+* [Git](https://git-scm.com/) was used as version control
+* [Gitpod](https://gitpod.io/) was where I wrote my code
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+### Other tools
+* [Balsamiq](https://balsamiq.com/) was used to create wireframes
+*  was used to check responsiveness
+* [Illustrator](https://www.adobe.com/uk/products/illustrator.html) was used to create t-shirt mockups and resize images
+* [Free Conert](https://www.freeconvert.com/webp-converter) was used to compress images 
+*  was used to create a mockup of the site
+* [Google chrome dev tools](https://developer.chrome.com/docs/devtools) was used to test responsiveness and debugging
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+## Testing
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+Please refer [here](TESTING.md) for all information on testing
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+## Deployment
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+* To make a local copy of this project, you can clone the repository by typing the following command into your IDE terminal:
 
-------
+`git clone https://github.com/nhamidi90/unnie_style.git`
 
-## FAQ about the uptime script
+* Alternatively, to open the workspace in Gitpod, you can [click here](https://gitpod.io/#https://github.com/nhamidi90/unnie_style)
+* Go to the Heroku dashboard an select 'Create new app'
+* Enter a unique name and select your region. Click 'Create App'.
+* Inside your project, go to the settings tab and select the 'Reveal config vars' button
 
-**Why have you added this script?**
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+## Credits
 
-**How will this affect me?**
+### Code
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+* [Code Institute](https://codeinstitute.net/) - I sourced most of the framework using the Code Institute Boutique Ado wallkthrough. Although there are similarities in the checkout, payment, webhook system I customised my site wherever possible in order to fit my user goals.
+* [Bootstrap](https://getbootstrap.com/) - I used bootstrap classes throughout the project for layout and also used elements such as navbar, toasts and dropdowns
+* [W3C Schools](https://www.w3schools.com/howto/howto_css_hide_arrow_number.asp) gave me the code for hiding the arrow inside an input number
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+### Media
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+* https://www.flaticon.com/free-icon/photo_15795219?related_id=15795219
+* https://unsplash.com/photos/white-crew-neck-t-shirt-gEupiRvyxh0
+* https://unsplash.com/photos/two-white-ceramic-mugs-qVg2lhK4sVY
+* https://pixabay.com/photos/street-shot-fashion-girl-beauty-1780393/
+* https://unsplash.com/photos/man-and-woman-standing-beside-gray-rails-on-bridge-during-daytime-2OXNxfTt3kQ
+* https://pixabay.com/photos/blank-tshirt-male-fashion-top-1886001/ 
+* https://pixabay.com/photos/blank-tshirt-male-fashion-top-1886013/
+* https://pixabay.com/illustrations/heart-pattern-wallpaper-sparkles-5913128/
+* https://unsplash.com/photos/man-standing-near-concrete-bricks-9UAfLTqMoS0
+* https://unsplash.com/photos/woman-in-white-crew-neck-t-shirt-holding-black-smartphone-t2JEL82VTe0
+* https://unsplash.com/photos/woman-in-white-crew-neck-t-shirt-and-brown-leather-sling-bag-0UBg7jhsSxs
+* All pictures for mugs were taken by me
 
-**So….?**
+### Content
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+* I looked to the following sites for inspiration:
+    *  [Anafiya gifts](https://www.anafiya.com/)
+    *  [Noorah gifts](https://www.noorahgifts.com/)
 
-**Can I opt out?**
+## Acknowledgements
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+* Thank you to the Code Institute tutors for their help when I got stuck with code
+* Thank you to my mentor, Juliia Konovalova for guiding me through this project
