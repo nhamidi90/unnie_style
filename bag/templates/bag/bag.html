@@ -40,9 +40,14 @@
                     <div class="col-12 col-sm-6 pt-2 order-sm-last">
                         <strong>Total: </strong>£{{ item.product.price | calc_subtotal:item.quantity }}
                     </div>
-                    <div class="col">
+                    <div class="col-12">
                         <hr>
                         {% include 'bag/totals.html' %}
+                    </div>
+                    <div class="col-12 pt-4">
+                        <hr>
+                        <p><strong>Delivery information:</strong></p>
+                        <p>Free delivery for orders over £40. Otherwise £3.99</p>
                     </div>
                 </div>
                 {% endfor %}
