@@ -6,12 +6,17 @@
 
 /* global settings  */
 
-html {
-    height: 100vh;
-}
+
 
 body {
     font-family: nunito;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
 }
 
 .header-container {
@@ -39,6 +44,10 @@ body {
 #logo-mini {
     display:none;
     width: 50px;
+}
+
+.footer-logo {
+    width: 30px;
 }
 
 .pink-font {
@@ -330,6 +339,7 @@ select option[value=""] {
     #logo {
         display: none;
     }
+
     #logo-mini {
         display:inline-block;
     }

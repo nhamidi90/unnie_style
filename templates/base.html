@@ -124,9 +124,11 @@
             {% endfor %}
         </div>
     {% endif %}
-    
-    {% block content %}
-    {% endblock %}
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
 
     {% block postloadjs %}
     <script type="text/javascript">
@@ -134,6 +136,31 @@
     </script>
     {% endblock %}
 
+    <footer class="mx-5 my-2">
+        <div class="container-fluid">
+            <hr>
+            <div class="row">
+                <div class="col-md-8 text-center">
+                    <img class="footer-logo mr-2" src="{{ MEDIA_URL }}logo-mini.png" alt="Unnie Style logo"> 
+                    © 2024 Copyright Unnie Style
+                </div>
+                <div class="col-md-4 text-center d-flex justify-content-between">
+                    <a class="grey-text text-lighten-4 right" href="https://www.facebook.com/" target="_blank"
+                        aria-label="Go to our Facebook page">
+                        <i class="fa-brands fa-facebook footer-icon"></i>
+                    </a>
+                    <a class="grey-text text-lighten-4 right" href="https://www.instagram.com/" target="_blank"
+                        aria-label="Go to our Instagram page">
+                        <i class="fa-brands fa-instagram footer-icon"></i>
+                    </a>
+                    <a class="grey-text text-lighten-4 right" href="https://www.tiktok.com/" target="_blank"
+                        aria-label="Go to our Tiktok page">
+                        <i class="fa-brands fa-tiktok footer-icon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
