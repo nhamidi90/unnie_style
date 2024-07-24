@@ -5,13 +5,15 @@
 <div class="container">
     <div class="row header-container">
         <div class="col">
-            <h1 class="header-padding">Thank you for your order! <img class="heart" src="{{ MEDIA_URL }}heart.png" 
-                alt="heart image"></h1>
+            <h1 class="header-padding">Thank you for your order! <img class="heart" src="{{ MEDIA_URL }}heart.png"
+                    alt="heart image"></h1>
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <p>Your order was successful! Your order number is <strong>{{ order.order_number }}</strong>. 
+            <p>Your order was successful! Your order number is <strong
+                    class="d-none d-sm-block">{{ order.order_number }}.</strong>
+                <small class="d-block d-sm-none"><strong>{{ order.order_number}}</strong>.</small>
                 A confirmation email has been sent to <strong>{{ order.email}}</strong></p>
         </div>
     </div>
@@ -29,7 +31,8 @@
                     <p class="text-muted ml-3">Order Number:</p>
                 </div>
                 <div class="col">
-                    <p>{{ order.order_number }}</p>
+                    <p><strong class="d-none d-sm-block">{{ order.order_number }}.</strong>
+                        <small class="d-block d-sm-none">{{ order.order_number}}.</small></p>
                 </div>
             </div>
             <div class="row">
@@ -47,16 +50,16 @@
                     <hr>
                 </div>
             </div>
-                {% for item in order.lineitems.all %}
-                <div class="row">
-                    <div class="col">
-                        <p class="ml-3 items"><strong>{{ item.product.name }}</strong>
-                            {% if item.product_size %}
-                                -{{ item.product_size | upper }}
-                            {% endif %}
+            {% for item in order.lineitems.all %}
+            <div class="row">
+                <div class="col">
+                    <p class="ml-3 items"><strong>{{ item.product.name }}</strong>
+                        {% if item.product_size %}
+                        -{{ item.product_size | upper }}
+                        {% endif %}
                         <br>Quantity: {{ item.quantity }} (£{{ item.product.price}} each)</p>
-                    </div>
                 </div>
+            </div>
             {% endfor %}
 
 
@@ -88,11 +91,11 @@
                 </div>
                 <div class="col">
                     <p>{{ order.street_address1 }}
-                    <br>{% if order.street_address2 %}{{ order.street_address2 }}{% endif %}
-                    <br>{% if order.county %}{{ order.county }}{% endif %}
-                    <br>{{ order.town_or_city }}
-                    <br>{% if order.postcode %}{{ order.postcode }}{% endif %}
-                    <br>{{ order.country }}</p>
+                        <br>{% if order.street_address2 %}{{ order.street_address2 }}{% endif %}
+                        <br>{% if order.county %}{{ order.county }}{% endif %}
+                        <br>{{ order.town_or_city }}
+                        <br>{% if order.postcode %}{{ order.postcode }}{% endif %}
+                        <br>{{ order.country }}</p>
                 </div>
             </div>
 
@@ -131,9 +134,9 @@
     <div class="row">
         <div class="col">
             {% if from_profile %}
-                <a href="{% url 'profile' %}" class="btn button-style mb-5">
-                    <i class="fas fa-chevron-left"></i> Back to profile
-                </a>
+            <a href="{% url 'profile' %}" class="btn button-style mb-5">
+                <i class="fas fa-chevron-left"></i> Back to profile
+            </a>
             {% endif %}
         </div>
     </div>
