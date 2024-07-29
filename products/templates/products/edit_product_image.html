@@ -19,6 +19,7 @@
                 {% csrf_token %}
                 {% for image in image_form %}
                     {{ image|as_crispy_field }}
+                    <img width="96" height="96" src="{{ MEDIA_URL }}{{ image.image }}" alt="{{ image.name }}" name="div_id_image" value="{{ image.image }}">
                 {% endfor %}
                 <div>
                     <button class="button rounded p-2" type="submit">Update images</button>
