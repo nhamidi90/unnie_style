@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['8000-nhamidi90-unniestyle-ne47i6fjyzl.ws.codeinstitute-ide.net',
                  'localhost',
-                 'unnie-style-5cfa8a993e90.herokuapp.com/']
+                 'unnie-style-5cfa8a993e90.herokuapp.com']
 
 
 # Application definition
