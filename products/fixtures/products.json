@@ -7,7 +7,6 @@
 "price": 15, 
 "category": 1, 
 "has_sizes": "True",
-"has_color": "True",
 "main_image": "sarang_white.webp"
 }},
 {"pk": 2, 
@@ -19,7 +18,6 @@
 "price": 15, 
 "category": 1, 
 "has_sizes": "True",
-"has_color": "True",
 "main_image": "fearless_white.webp"
 }},
 {"pk": 3, 
@@ -31,7 +29,6 @@
 "price": 15, 
 "category": 1, 
 "has_sizes": "True",
-"has_color": "True",
 "main_image": "shouganai_tshirt.webp"
 }},
 {"pk": 4, 
@@ -43,7 +40,6 @@
 "price": 12, 
 "category": 2, 
 "has_sizes": "False",
-"has_color": "False",
 "main_image": "shouganai_mug.webp"
 }},
 {"pk": 5, 
@@ -55,7 +51,6 @@
 "price": 12, 
 "category": 2, 
 "has_sizes": "False",
-"has_color": "False",
 "main_image": "cute_cat_mug.webp"
 }},
 {"pk": 6, 
@@ -67,7 +62,6 @@
 "price": 12, 
 "category": 2, 
 "has_sizes": "False",
-"has_color": "False",
 "main_image": "sarang_mug.webp"
 }},
 {"pk": 7, 
@@ -79,7 +73,6 @@
 "price": 12, 
 "category": 2, 
 "has_sizes": "False",
-"has_color": "False",
 "main_image": "morning_night_mug.webp"
 }}
 ]
