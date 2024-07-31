@@ -1,0 +1,1 @@
+web: gunicorn unnie_style.wsgi:application
