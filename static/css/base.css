@@ -35,7 +35,7 @@ main {
     padding-left: 100px;
 }
 
-#logo {
+.logo {
     width: 90%;
     max-width: 300px;
     height: 90%;
@@ -336,7 +336,7 @@ select option[value=""] {
 /* Media queries */
 
 @media (max-width: 400px) {
-    #logo {
+    .logo {
         display: none;
     }
 
@@ -356,7 +356,7 @@ select option[value=""] {
 }
 
 @media (max-width: 619px) {
-    #logo {
+    .logo {
         width: 150px;
     }
 

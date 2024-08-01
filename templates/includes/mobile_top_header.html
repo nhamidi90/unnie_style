@@ -1,45 +1,46 @@
-
-<li class="list-inline-item pt-2">
-    <a class="d-lg-none" href="{% url 'home' %}">
-        <img id="logo" src="{{ MEDIA_URL }}logo.png" alt="Go to Unnie Style homepage">
-        <img id="logo-mini" src="{{ MEDIA_URL }}logo-mini.png" alt="Go to Unnie Style homepage">
-    </a>
-</li>
-<li class="list-inline-item">
-    <a class="nav-link d-block d-lg-none" href="#" id="mobile-search" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">
-        <div class="text-center mobile-icon">
-            <div><i class="fas fa-search fa-lg"></i></div>
-            <p class="my-0">Search</p>
-        </div>
-    </a>
-    <div class="dropdown-menu border-0 w-100 p-3 my-0" aria-labelledby="mobile-search">
-        <form method="GET" action="{% url 'products' %}">
-            <div class="input-group w-100">
-                <input class="form-control" type="text" name="q" placeholder="Search" aria-label="Search">
-                <div class="input-group-append">
-                    <button class="form-control btn" type="submit">
-                        <span class="icon">
-                            <i class="fas fa-search"></i>
-                        </span>
-                    </button>
-                </div>
+<ul>
+    <li class="list-inline-item pt-2">
+        <a class="d-lg-none" href="{% url 'home' %}">
+            <img class="logo" src="{{ MEDIA_URL }}logo.png" alt="Go to Unnie Style homepage">
+            <img id="logo-mini" src="{{ MEDIA_URL }}logo-mini.png" alt="Go to Unnie Style homepage">
+        </a>
+    </li>
+    <li class="list-inline-item">
+        <a class="nav-link d-block d-lg-none" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <div class="text-center mobile-icon">
+                <div><i class="fas fa-search fa-lg"></i></div>
+                <p class="my-0">Search</p>
             </div>
-        </form>
-    </div>
-</li>
-<li class="list-inline-item">
-    <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none p-0"
-        href="{% url 'view_bag' %}">
-        <div class="text-center mobile-icon">
-            <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-            <p class="my-0">
-                {% if grand_total %}
-                ${{ grand_total|floatformat:2 }}
-                {% else %}
-                $0.00
-                {% endif %}
-            </p>
+        </a>
+        <div class="dropdown-menu border-0 w-100 p-3 my-0" aria-labelledby="mobile-search">
+            <form method="GET" action="{% url 'products' %}">
+                <div class="input-group w-100">
+                    <input class="form-control" type="text" name="q" placeholder="Search" aria-label="Search">
+                    <div class="input-group-append">
+                        <button class="form-control btn" type="submit">
+                            <span class="icon">
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
-    </a>
-</li>
+    </li>
+    <li class="list-inline-item">
+        <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none p-0"
+            href="{% url 'view_bag' %}">
+            <div class="text-center mobile-icon">
+                <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                <p class="my-0">
+                    {% if grand_total %}
+                    ${{ grand_total|floatformat:2 }}
+                    {% else %}
+                    $0.00
+                    {% endif %}
+                </p>
+            </div>
+        </a>
+    </li>
+</ul>
