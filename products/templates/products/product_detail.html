@@ -111,7 +111,7 @@
 {% block postloadjs %}
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
-<script type="text/javascript">
+<script>
     $( ".small-image" ).on( "click", function() {
         let pic = $(this).clone();
         pic.removeClass('small-image').addClass('img-fluid')

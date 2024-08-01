@@ -23,7 +23,7 @@ class AddressForm(forms.ModelForm):
             'street_address1': 'Street Address 1',
             'street_address2': 'Street Address 2',
             'county': 'County',
-            'default_address': 'Default address',
+            # 'default_address': 'Default address',
         }
 
         self.fields['street_address1'].widget.attrs['autofocus'] = True
