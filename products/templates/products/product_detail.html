@@ -114,7 +114,7 @@
 <script>
     $( ".small-image" ).on( "click", function() {
         let pic = $(this).clone();
-        pic.removeClass('small-image').addClass('img-fluid')
+        pic.removeClass('small-image').addClass('img-fluid');
         $("#main-image-cont").append(pic);
         $("#main-image-cont").children(":first").remove();
 } );
