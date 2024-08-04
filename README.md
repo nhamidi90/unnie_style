@@ -1,11 +1,11 @@
 # Unnie Style
 
-Unnie Style is an e-commerce website whcih allows visitors to browse and purchase a range of products. It is
+Unnie Style is an e-commerce website which allows visitors to browse and purchase a range of products. It is
 targeted towards those who are interested in the Eastern Asian culture.
 
-![Screenshot of the website on different devices]()
+![Mockup of Unnie Style](documentation/readme/mockup.png)
 
-The live link can be found [here]()
+The live link can be found [here](https://unnie-style-5cfa8a993e90.herokuapp.com/)
 
 ## User Stories
 
@@ -40,14 +40,27 @@ Wireframes can be viewed in pdf format [here](documentation/readme/wireframes.pd
 * Account (Create account/sign in/sign out, view profile, wishlist, add product for admins)
 * Shopping bag
 
+![Screenshot of Header](documentation/readme/screenshots/header.png)
+
+![Screenshot of navbar mobile view](documentation/readme/screenshots/menu-mobile.png)
+
+### Footer
+* Social links
+
+![Screenshot of footer](documentation/readme/screenshots/footer.png)
+
 ### Messages
 * Success message with link to bag where applicable
 * Error message
 * Warning message
 
+![Screenshot of toast example](documentation/readme/screenshots/toast.png)
+
 ### Homepage
 * Hero image
 * Featured categories
+
+![Screenshot of index page](documentation/readme/screenshots/index.png)
 
 ### All products page
 * Shows product image, name and price
@@ -55,6 +68,8 @@ Wireframes can be viewed in pdf format [here](documentation/readme/wireframes.pd
 * They can also sort products by price or alphabetically
 * Users can add products to their wishlist
 * Admin can edit or delete products
+
+![Screenshot of products page](documentation/readme/screenshots/products.png)
 
 ### Product detail page
 * Multiple images for product
@@ -64,12 +79,17 @@ Wireframes can be viewed in pdf format [here](documentation/readme/wireframes.pd
 * Back to products page button
 * Admin can edit or delete product
 
+![Screenshot of product detail page](documentation/readme/screenshots/product_detail.png)
+
 ### Bag page
 * Thumbnail of product, name, price and option to update quantity or remove from bag
+* Notification of how much left to spend to qualify for free delivery
 * Totals are updated as quantity is changed
 * Delivery information
 * Button to keep shopping
 * Button to checkout
+
+![Screenshot of bag page](documentation/readme/screenshots/bag.png)
 
 ### Checkout page
 * Form to fill in details and delivery information
@@ -80,13 +100,23 @@ Wireframes can be viewed in pdf format [here](documentation/readme/wireframes.pd
 * Back to bag button
 * Complete order button
 
-### Checkout confirmation page
+![Screenshot of checkout page](documentation/readme/screenshots/checkout.png)
+
+### Order confirmation page
 * Checkout confirmation
 * Sends details to email
+
+![Screenshot of order confirmation page](documentation/readme/screenshots/order_confirmation.png)
 
 ### Authentication pages
 * Provided by allauth
 * Register/login/logout
+
+![Screenshot of sign in page](documentation/readme/screenshots/sign_in.png)
+
+![Screenshot of sign up page](documentation/readme/screenshots/sign_up.png)
+
+![Screenshot of sign out page](documentation/readme/screenshots/sign_out.png)
 
 ### Profile page
 * User details
@@ -94,6 +124,10 @@ Wireframes can be viewed in pdf format [here](documentation/readme/wireframes.pd
 * Add new address with set as default option
 * Saved addresses with edit/delete option
 * Users can only access their own profile
+
+![Screenshot of profile page](documentation/readme/screenshots/profile.png)
+
+![Screenshot of edit address page](documentation/readme/screenshots/edit_address.png)
 
 ### Wishlist page
 * Picture or product with name and price
@@ -103,10 +137,18 @@ Wireframes can be viewed in pdf format [here](documentation/readme/wireframes.pd
 * Users must be logged in
 * users can only access their own wishlist
 
+![Screenshot of wishlist page](documentation/readme/screenshots/wishlist.png)
+
 ### Add/edit product (admin)
 * Add product
 * Link to add additional images
 * Must be authenticated and admin
+
+![Screenshot of add product page](documentation/readme/screenshots/add_product.png)
+
+![Screenshot of add product image page](documentation/readme/screenshots/add-image.png)
+
+![Screenshot of edit product page](documentation/readme/screenshots/edit_product.png)
 
 ## Future features
 * I would like to add options to some products so shoppers can select different coloured t-shirts
@@ -164,11 +206,12 @@ This diagram illustrates the models and their relationships
 
 ### Other tools
 * [Balsamiq](https://balsamiq.com/) was used to create wireframes
-*  was used to check responsiveness
 * [Illustrator](https://www.adobe.com/uk/products/illustrator.html) was used to create t-shirt mockups and resize images
 * [Free Conert](https://www.freeconvert.com/webp-converter) was used to compress images 
-*  was used to create a mockup of the site
+* [Am I responsive](https://ui.dev/amiresponsive) was used to create a mockup of the site
 * [Google chrome dev tools](https://developer.chrome.com/docs/devtools) was used to test responsiveness and debugging
+* [dbdiagram](https://dbdiagram.io/) was used to mock up database structure diagram.
+
 
 ## Testing
 
