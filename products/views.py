@@ -9,6 +9,7 @@ from profiles.models import UserProfile
 from wishlist.models import Wishlist
 from .forms import ProductForm, OtherImagesForm
 
+
 # Create your views here.
 def all_products(request):
     """ A view to return all products including sorting and searching """
@@ -47,19 +48,19 @@ def all_products(request):
             if not query:
                 messages.error(request, "You didn't enter a search criteria")
                 return redirect(reverse('products'))
-            
+
             Queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(Queries)
 
     current_sorting = f'{sort}_{direction}'
-            
+
     context = {
         'products': products,
         'search_term': query,
         'current_category': category,
         'current_sorting': current_sorting,
     }
-    
+
     return render(request, 'products/products.html', context)
 
 
@@ -73,7 +74,7 @@ def product_detail(request, product_id):
         'product': product,
         'images': images,
     }
-    
+
     return render(request, 'products/product_detail.html', context)
 
 
@@ -84,7 +85,7 @@ def add_product(request):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can add a product')
         return redirect(reverse('home'))
-    
+
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
@@ -113,12 +114,12 @@ def add_product_image(request):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can add a product')
         return redirect(reverse('home'))
-    
+
     if request.method == 'POST':
         image_form = OtherImagesForm(request.POST, request.FILES)
         if image_form.is_valid():
             image_form.save()
-            messages.success(request, f'Successfully added image')
+            messages.success(request, 'Successfully added image')
             return redirect(reverse('products'))
         else:
             messages.error(request, 'Images could not be added. Please make \
@@ -141,7 +142,7 @@ def edit_product(request, product_id):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can edit a product')
         return redirect(reverse('home'))
-    
+
     product = get_object_or_404(Product, pk=product_id)
 
     if request.method == 'POST':
@@ -151,7 +152,7 @@ def edit_product(request, product_id):
             messages.success(request, 'Successfully updated product')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Product could not be updated. Please make \
+            messages.error(request, 'Product could not be updated. Please make\
                 sure the form is valid')
     else:
         form = ProductForm(instance=product)
@@ -161,7 +162,7 @@ def edit_product(request, product_id):
     context = {
         'form': form,
         'product': product,
-    }       
+    }
     return render(request, template, context)
 
 
@@ -172,7 +173,8 @@ def edit_product(request, product_id):
 #     images = OtherImages.objects.filter(product=product)
 
 #     if request.method == 'POST':
-#         image_form = EditImagesForm(request.POST, request.FILES, instance=product)
+#         image_form = EditImagesForm(request.POST, request.FILES,
+#                                     instance=product)
 #         print("Errors: ", image_form.errors)
 #         if image_form.is_valid:
 #             image_form.save()
@@ -191,18 +193,19 @@ def edit_product(request, product_id):
 #         'image_form': image_form,
 #         'product': product,
 #         'images': images,
-#     }       
+#     }
 #     return render(request, template, context)
 
 
 @login_required
 def delete_product(request, product_id):
     """ Delete a product """
-    
+
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can delete a product')
+        messages.error(request, 'Sorry, only store owners can delete a \
+                       product')
         return redirect(reverse('home'))
-    
+
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product deleted')
@@ -215,12 +218,15 @@ def add_to_wishlist(request, product_id):
     """ Add product to user's wishlist """
     profile = get_object_or_404(UserProfile, user=request.user)
     product = get_object_or_404(Product, pk=product_id)
-    
-    if Wishlist.objects.filter(user_profile=profile, products=product).exists():
-        messages.error(request, 'You have already added this item to your wishlist')
+
+    if Wishlist.objects.filter(user_profile=profile,
+                               products=product).exists():
+        messages.error(request, 'You have already added this item to your\
+                      wishlist')
         return redirect(reverse('products'))
     else:
         Wishlist.objects.create(user_profile=profile, products=product)
-        messages.success(request, f'Successfully added {product.name} to your wishlist')
-    
+        messages.success(request, f'Successfully added {product.name} to your\
+                         wishlist')
+
     return redirect(reverse('wishlist'))

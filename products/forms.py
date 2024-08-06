@@ -9,7 +9,8 @@ class ProductForm(forms.ModelForm):
         model = Product
         fields = "__all__"
 
-    main_image = forms.ImageField(label='', required=False, widget=CustomClearableFileInput)
+    main_image = forms.ImageField(label='', required=False,
+                                  widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -25,7 +26,8 @@ class OtherImagesForm(forms.ModelForm):
         model = OtherImages
         fields = "__all__"
 
-    image = forms.ImageField(label='Other Images', required=False, widget=CustomClearableFileInput)
+    image = forms.ImageField(label='Other Images', required=False,
+                             widget=CustomClearableFileInput)
 
 
 # class EditImagesForm(forms.ModelForm):
@@ -34,4 +36,5 @@ class OtherImagesForm(forms.ModelForm):
 #         model = OtherImages
 #         exclude = ('product',)
 
-#     image = forms.ImageField(label='', required=False, widget=CustomClearableFileInput)
+#     image = forms.ImageField(label='', required=False,
+#                              widget=CustomClearableFileInput)

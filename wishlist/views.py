@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Wishlist
 from profiles.models import UserProfile
 
+
 # Create your views here.
 @login_required
 def wishlist(request):
@@ -21,7 +22,7 @@ def wishlist(request):
 
 def delete_wish(request, wishlist_id):
     """ Delete item from wishlist """
-    
+
     wishlist = get_object_or_404(Wishlist, pk=wishlist_id)
     wishlist.delete()
 

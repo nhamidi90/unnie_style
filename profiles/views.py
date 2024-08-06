@@ -10,7 +10,7 @@ from .forms import AddressForm
 # Create your views here.
 @login_required
 def profile(request):
-    """ Display user's profile and addresses including ability to add 
+    """ Display user's profile and addresses including ability to add
     new address"""
     profile = get_object_or_404(UserProfile, user=request.user)
     addresses = Addresses.objects.filter(user_profile=profile)
@@ -28,9 +28,8 @@ def profile(request):
         else:
             messages.error(request, 'Unable to add address. Please try again')
     else:
-        form = AddressForm()    
-        
-    
+        form = AddressForm()
+
     template = 'profiles/profile.html'
 
     context = {
@@ -55,7 +54,8 @@ def edit_address(request, address_id):
             messages.success(request, 'Updated address')
             return redirect(reverse('profile'))
         else:
-            messages.error(request, 'Unable to update address. Please try again')
+            messages.error(request, 'Unable to update address. \
+                           Please try again')
     else:
         form = AddressForm(instance=address)
 
