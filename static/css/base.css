@@ -1,13 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
-/* *{
-    border: 1px solid;
-} */
-
-/* global settings  */
-
-
-
 body {
     font-family: nunito;
     display: flex;
@@ -60,7 +52,7 @@ a.text-black.nav-link.d-block.d-lg-none {
 }
 
 a {
-    color:rgb(230, 113, 211);
+    color:rgb(144, 36, 126);
     text-decoration: none;
 }
 
@@ -244,6 +236,13 @@ span > input {
 
 /* bag  */
 
+.bag-link {
+    color:rgb(144, 36, 126);
+}
+
+.bag-link:hover {
+    color: rgb(66, 22, 108);
+}
 a.btn.checkout-btn, 
 .delivery-delta,
 button#submit-button,
