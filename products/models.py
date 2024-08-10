@@ -38,6 +38,6 @@ class OtherImages(models.Model):
     class Meta:
         verbose_name_plural = 'Other Images'
     """ Model for extra images """
-    product = models.ForeignKey(Product, null=True, blank=True,
-                                on_delete=models.SET_NULL)
+    product = models.ForeignKey(
+        Product, null=True, blank=True, on_delete=models.SET_NULL)
     image = models.ImageField(null=True, blank=True)

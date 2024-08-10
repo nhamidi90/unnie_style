@@ -5,8 +5,9 @@ from .models import Addresses
 class AddressForm(forms.ModelForm):
     class Meta:
         model = Addresses
-        fields = ('street_address1', 'street_address2', 'town_or_city',
-                  'county', 'postcode', 'country', 'default_address')
+        fields = (
+            'street_address1', 'street_address2', 'town_or_city', 'county',
+            'postcode', 'country', 'default_address')
         widgets = {
             'default_address': forms.CheckboxInput()
         }

@@ -1,5 +1,5 @@
-from django.shortcuts import (render, redirect, reverse, get_object_or_404,
-                              HttpResponse)
+from django.shortcuts import (
+    render, redirect, reverse, get_object_or_404, HttpResponse)
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
@@ -29,9 +29,9 @@ def cache_checkout_data(request):
         return HttpResponse(status=200)
     except Exception as e:
         messages.error(
-            request, 'Sorry your payment could not be processed. \
-            Please try again.'
-        )
+            request, '''Sorry your payment could not be processed.
+            Please try again.'''
+            )
         return HttpResponse(content=e, status=400)
 
 
@@ -74,7 +74,7 @@ def checkout(request):
                         order_line_item.save()
                     else:
                         for size, quantity in item_data[
-                            'items_by_size'].items():
+                                'items_by_size'].items():
                             order_line_item = OrderLineItem(
                                 order=order,
                                 product=product,
@@ -83,10 +83,10 @@ def checkout(request):
                             )
                             order_line_item.save()
                 except Product.DoesNotExist:
-                    messages.error(request, 
-                        "One of the products in your bag wasn't found. \
-                        Please contact us for assistance!"
-                    )
+                    messages.error(
+                        request, '''One of the products in your bag wasn't
+                        found. Please contact us for assistance!'''
+                        )
                     order.delete()
                     return redirect(reverse('view_bag'))
 
@@ -121,7 +121,7 @@ def checkout(request):
                 if addresses:
                     for address in addresses:
                         if address.default_address:
-                            print(address)
+                            print(address.street_address1)
                             order_form = OrderForm(initial={
                                 'full_name': profile.user.get_full_name(),
                                 'email': profile.user.email,
@@ -157,7 +157,7 @@ def checkout(request):
                         'postcode': "",
                         'country': "",
                     })
-                
+
             except UserProfile.DoesNotExist:
                 order_form = OrderForm()
         else:

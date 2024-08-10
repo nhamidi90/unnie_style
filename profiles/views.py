@@ -54,8 +54,8 @@ def edit_address(request, address_id):
             messages.success(request, 'Updated address')
             return redirect(reverse('profile'))
         else:
-            messages.error(request, 'Unable to update address. \
-                           Please try again')
+            messages.error(
+                request, 'Unable to update address. Please try again')
     else:
         form = AddressForm(instance=address)
 

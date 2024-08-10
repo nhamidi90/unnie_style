@@ -16,7 +16,8 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.username
-    
+
+
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
     """ Create or update user profile"""
@@ -29,10 +30,12 @@ class Addresses(models.Model):
     """
     Model for addresses
     """
-    class Meta:
-        verbose_name_plural='Addresses'
 
-    user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE, null=True, blank=True)
+    class Meta:
+        verbose_name_plural = 'Addresses'
+
+    user_profile = models.ForeignKey(
+        UserProfile, on_delete=models.CASCADE, null=True, blank=True)
     street_address1 = models.CharField(max_length=80, null=True, blank=True)
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
     town_or_city = models.CharField(max_length=40, null=True, blank=True)
@@ -41,8 +44,10 @@ class Addresses(models.Model):
     country = CountryField(blank_label='Country *', null=True, blank=True)
     default_address = models.BooleanField(default=False, null=True, blank=True)
 
-    
+    # Set only one default address
     def save(self, *args, **kwargs):
-        if self.default_address == True:
-            Addresses.objects.filter(user_profile=self.user_profile, default_address=True).exclude(id=self.id).update(default_address=False)
+        if self.default_address:
+            Addresses.objects.filter(
+                user_profile=self.user_profile, default_address=True).exclude(
+                    id=self.id).update(default_address=False)
         super().save(*args, **kwargs)

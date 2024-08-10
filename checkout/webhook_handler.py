@@ -26,8 +26,8 @@ class StripeWH_Handler:
             {'order': order})
         body = render_to_string(
             'checkout/confirmation_emails/confirmation_email_body.txt',
-            {'order': order,
-             'contact_email': settings.DEFAULT_FROM_EMAIL})
+            {
+                'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
 
         send_mail(
             subject,
@@ -104,8 +104,8 @@ class StripeWH_Handler:
         if order_exists:
             self._send_confirmation_email(order)
             return HttpResponse(
-                content=f'Webhook received: {event["type"]} | SUCCESS: verfied\
-                order exists in database',
+                content=f'''Webhook received: {event["type"]} |
+                SUCCESS: verfied order exists in database''',
                 status=200
             )
         else:
@@ -135,7 +135,8 @@ class StripeWH_Handler:
                         )
                         order_line_item.save()
                     else:
-                        for size, quantity in item_data['items_by_size'].items():
+                        for size, quantity in item_data[
+                                'items_by_size'].items():
                             order_line_item = OrderLineItem(
                                 order=order,
                                 product=product,
@@ -146,11 +147,13 @@ class StripeWH_Handler:
             except Exception as e:
                 if order:
                     order.delete()
-                return HttpResponse(content=f'Webhook received: {event["type"]} | ERROR: {e}',
-                                    status=500)
+                return HttpResponse(
+                    content=f'''Webhook received: {event["type"]} |
+                    ERROR: {e}''', status=500)
         self._send_confirmation_email(order)
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
+            content=f'''Webhook received: {event["type"]} |
+            SUCCESS: Created order in webhook''',
             status=200
             )
 
