@@ -10,6 +10,7 @@
         </div>
     </div>
 
+    <!-- user details  -->
     <div class="row">
         <div class="col-12">
             <p><strong>My details:</strong></p>
@@ -19,6 +20,8 @@
             </p>
         </div>
     </div>
+
+    <!-- order history  -->
     <div class="row border">
         <div class="col-12">
             <p class="pt-4"><strong>Order history:</strong></p>
@@ -62,19 +65,19 @@
             </div>
         </div>
     </div>
+
+    <!-- add address form  -->
     <div class="row mt-5">
         <div class="col-12 col-md-6">
             <p class="pt-4"><strong>Add a new address:</strong></p>
             <form action="{% url 'profile' %}" method="POST" id="add-address">
                 {% csrf_token %}
                 {{ form | crispy }}
-                <!-- <p>
-                <label class="form-check-label" for="id_default_address">Set as default address</label>
-                <input class="form-check-input ml-4" type="checkbox" id="id_default_address" name="default_address" value="True">
-                </p> -->
                 <p><button class="button rounded p-2">Add address</button></p>
             </form>
         </div>
+
+        <!-- display addresses  -->
         <div class="col-12 col-md-6 address-container">
             <hr class="d-md-none">
             <p class="pt-4"><strong>My addresses:</strong></p>
@@ -86,8 +89,8 @@
                 {% if ad.county %}<br>{{ ad.county }}{% endif %}
                 {% if ad.postcode %}<br>{{ ad.postcode }}{% endif %}
                 <br>{{ ad.country }}
-                <p><a href="{% url 'edit_address' ad.id %}">Edit</a> | 
-                    <a href="{% url 'delete_address' ad.id %}">Delete</a>
+                <p><a href="{% url 'edit_address' ad.id %}" aria-label="Edit address">Edit</a> | 
+                    <a href="{% url 'delete_address' ad.id %}" aria-label="Delete address">Delete</a>
                 </p>
                 <hr>
             </div>

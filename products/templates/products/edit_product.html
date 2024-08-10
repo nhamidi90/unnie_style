@@ -12,7 +12,8 @@
             </h1>
         </div>
     </div>
-    
+
+    <!-- edit product form  -->
     <div class="row">
         <div class="col-12 col-lg-6">
             <form method="POST" action="{% url 'edit_product' product.id %}" class="form mb-4" enctype="multipart/form-data">
@@ -25,10 +26,10 @@
                     {% endif %}
                 {% endfor %}
                 <div>
-                    <a href="{% url 'products' %}" class="btn shop-btn mr-4">
+                    <a href="{% url 'products' %}" class="btn shop-btn mr-4" aria-label="Cancel">
                     Cancel
                     </a>
-                    <button class="button rounded p-2" type="submit">Update product</button>
+                    <button class="button rounded p-2" type="submit" aria-label="Update product">Update product</button>
                 </div>
             </form>
         </div>
@@ -40,6 +41,7 @@
 {% block postloadjs %}
 {{ block.user }}
     <script>
+        // change image warning
         $('.new-image').change(function() {
             var file = $('.new-image')[0].files[0];
             $('#filename').text(`Image will be set to ${file.name}`);

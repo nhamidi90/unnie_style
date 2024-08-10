@@ -6,6 +6,8 @@
 {% block content %}
 <div class="container-fluid header-container h-100 scroll">
     <div class="row bg-white px-5 h-100 d-sm-flex flex-sm-column-reverse flex-md-row-reverse">
+
+        <!-- display images  -->
         <div class="col-12 col-md-6 order-last">
             <div id="main-image-cont">
                 {% if product.main_image %}
@@ -29,6 +31,8 @@
                 {% endfor %}
             </div>
         </div>
+
+        <!-- product details and selectors -->
         <div class="col-12 col-md-6">
             <h2>{{ product.name }}</h2>
             <p><strong>£{{ product.price }}</strong></p>
@@ -40,7 +44,7 @@
                     {% if s %}
                     <div class="col-12">
                         <p><strong>Size:</strong></p>
-                        <select class="form-control" name="product_size" id='id_product_size'>
+                        <select class="form-control" name="product_size" id='id_product_size' aria-label="Select size">
                             <option disabled selected>Select size</option>
                             <option value="s">S</option>
                             <option value="m">M</option>
@@ -56,7 +60,7 @@
                             <div class="input-group rounded">
                                 <div class="input-group-prepend">
                                     <button class="decrement-qty btn" data-item_id="{{ product.id }}"
-                                        id="decrement-qty_{{ product.id }}">
+                                        id="decrement-qty_{{ product.id }}" aria-label="Decrease quantity">
                                         <span>
                                             <i class="fas fa-minus"></i>
                                         </span>
@@ -66,7 +70,7 @@
                                     max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
                                 <div class="input-group-append">
                                     <button class="increment-qty btn" data-item_id="{{ product.id }}"
-                                        id="increment-qty_{{ product.id }}">
+                                        id="increment-qty_{{ product.id }}" aria-label="Increase quantity">
                                         <span>
                                             <i class="fas fa-plus"></i>
                                         </span>
@@ -76,9 +80,11 @@
                         </div>
                     </div>
                     {% endwith %}
+
+                    <!-- add to bag/ wishlist/ back -->
                     <div class="col-12 d-flex">
                         <span class="btn button-style mr-2">
-                            <input type="submit" value="Add to Bag"> <i class="fas fa-shopping-bag"></i>
+                            <input type="submit" value="Add to Bag" aria-label="Add to bag"> <i class="fas fa-shopping-bag"></i>
                         </span>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </div>  
@@ -86,19 +92,22 @@
             </form>
             <form action="{% url 'add_to_wishlist' product.id %}" method='POST'>
                 {% csrf_token %}
-                <button type="submit" class="btn button-style mt-2">Add to Wishlist <i class="fa-regular fa-heart"></i></button>
+                <button type="submit" class="btn button-style mt-2" aria-label="Add to wishlist">
+                    Add to Wishlist <i class="fa-regular fa-heart"></i>
+                </button>
             </form>
                     <div class="col-12 pt-2 pl-0">
-                        <a class="btn button-style" href="{% url 'products' %}">
+                        <a class="btn button-style" href="{% url 'products' %}" aria-label="Back">
                             <i class="fa-solid fa-chevron-left"></i>
                             Back 
                         </a>
                     </div>
 
+            <!-- edit/delete buttons  -->
             <div class="mt-5">
                 {% if request.user.is_superuser %}
-                    <span class="mr-3"><a href="{% url 'edit_product' product.id %}"> Edit</a></span> |
-                    <span class="ml-3"><a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a></span>
+                    <span class="mr-3"><a href="{% url 'edit_product' product.id %}" aria-label="Edit product"> Edit</a></span> |
+                    <span class="ml-3"><a class="text-danger" href="{% url 'delete_product' product.id %}" aria-label="Delete product">Delete</a></span>
                 {% endif %}
             </div>
         </div>
@@ -112,6 +121,7 @@
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
 <script>
+    // enlarge image 
     $( ".small-image" ).on( "click", function() {
         let pic = $(this).clone();
         pic.removeClass('small-image').addClass('img-fluid');

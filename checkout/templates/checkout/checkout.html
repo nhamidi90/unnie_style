@@ -11,6 +11,7 @@
         </div>
     </div>
     
+    <!-- order summary  -->
     <div class="row">
         <div class="col-12 col-lg-6 order-lg-last">
             <p>Order summary ({{ product_count }})</p>
@@ -53,6 +54,8 @@
                 <p class="d-flex justify-content-between small"><strong>Total:</strong> £{{ grand_total|floatformat:2 }}</p>
             </div>
         </div>
+
+        <!-- order form  -->
         <div class="col-12 col-lg-6">
             <hr class="d-lg-none">
             <p class="text-center mt-2">Please fill out the form to complete your order</p>
@@ -78,20 +81,23 @@
                             <input class="form-check-input" type="checkbox" id="id-save-info" name="save_info" checked>
                         {% else %}
                         <label class="form-check-label" for="id-save-info">
-                            <a href="{% url 'account_login' %}"> Sign in</a> or 
-                            <a href="{% url 'account_signup' %}">create an account</a> to save this address
+                            <a href="{% url 'account_login' %}" aria-label="Sign in"> Sign in</a> or 
+                            <a href="{% url 'account_signup' %}" aria-label="Create an account">create an account</a> to save this address
                         </label>
                         {% endif %}
                     </div>
                 </fieldset>
+
+                <!-- payment  -->
                 <fieldset>
                     <legend class="small"><strong>Payment</strong></legend>
                     <div class="mb-3 form-control" id="card-element"></div>
                     <div class="text-danger mb-3" id="card-errors" role="alert"></div>
                     <input type="hidden" value="{{ client_secret }}" name="client_secret">
                 </fieldset>
+
                 <div>
-                    <a href="{% url 'view_bag' %}" class="btn shop-btn">
+                    <a href="{% url 'view_bag' %}" class="btn shop-btn" aria-label="Back to bag">
                         <i class="fas fa-chevron-left"></i>
                         Back to bag
                     </a>
@@ -107,6 +113,7 @@
     </div>
 </div>
 
+<!-- loading-overlay  -->
 <div id="loading-overlay">
     <h1 class="loading-spinner text-light">
         <span class="icon">

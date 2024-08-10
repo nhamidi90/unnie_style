@@ -1,10 +1,12 @@
 <ul>
+    <!-- logo  -->
     <li class="list-inline-item pt-2">
         <a class="d-lg-none" href="{% url 'home' %}">
             <img class="logo" src="{{ MEDIA_URL }}logo.png" alt="Go to Unnie Style homepage">
             <img id="logo-mini" src="{{ MEDIA_URL }}logo-mini.png" alt="Go to Unnie Style homepage">
         </a>
     </li>
+    <!-- search  -->
     <li class="list-inline-item">
         <a class="nav-link d-block d-lg-none" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
@@ -18,7 +20,7 @@
                 <div class="input-group w-100">
                     <input class="form-control" type="text" name="q" placeholder="Search" aria-label="Search">
                     <div class="input-group-append">
-                        <button class="form-control btn" type="submit">
+                        <button class="form-control btn" type="submit" aria-label="Search">
                             <span class="icon">
                                 <i class="fas fa-search"></i>
                             </span>
@@ -28,9 +30,10 @@
             </form>
         </div>
     </li>
+    <!-- bag  -->
     <li class="list-inline-item">
         <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none p-0"
-            href="{% url 'view_bag' %}">
+            href="{% url 'view_bag' %}" aria-label="View bag">
             <div class="text-center mobile-icon">
                 <div><i class="fas fa-shopping-bag fa-lg"></i></div>
                 <p class="my-0">

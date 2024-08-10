@@ -34,9 +34,15 @@
   {% endfor %}
 
 <div class="buttonHolder">
-      <button class="secondaryAction rounded p-2" type="submit" name="action_primary" >{% trans 'Make Primary' %}</button>
-      <button class="secondaryAction rounded p-2" type="submit" name="action_send" >{% trans 'Re-send Verification' %}</button>
-      <button class="primaryAction rounded p-2" type="submit" name="action_remove" >{% trans 'Remove' %}</button>
+      <button class="secondaryAction rounded p-2" type="submit" name="action_primary" aria-label="Make primary email">
+        {% trans 'Make Primary' %}
+      </button>
+      <button class="secondaryAction rounded p-2" type="submit" name="action_send" aria-label="Re-send verification">
+        {% trans 'Re-send Verification' %}
+      </button>
+      <button class="primaryAction rounded p-2" type="submit" name="action_remove" aria-label="Remove email">
+        {% trans 'Remove' %}
+      </button>
 </div>
 
 </fieldset>
