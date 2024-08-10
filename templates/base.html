@@ -37,6 +37,7 @@
 <body>
     <header class="container-fluid fixed-top bg-white">
         <div class="row pt-lg-2 d-none d-lg-flex">
+            <!-- search  -->
             <div class="col-4 my-auto">
                 <form method="GET" action="{% url 'products' %}">
                     <div class="input-group w-100 border-0">
@@ -51,11 +52,13 @@
                     </div>
                 </form>
             </div>
+            <!-- logo  -->
             <div class="col-4 my-auto text-center">
                 <a href="{% url 'home' %}">
                     <img class="logo" src="{{ MEDIA_URL }}logo.png" alt="Go to Unnie Style homepage">
                 </a>
             </div>
+            <!-- menu  -->
             <div class="col-4 my-auto">
                 <ul class="list-inline list-unstyled text-right my-auto">
                     <li class="list-inline-item dropdown text-center">
@@ -68,19 +71,19 @@
                         <div class="dropdown-menu border-0" aria-labelledby="user-menu">
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
-                                    <a href="{% url 'add_product' %}" class="dropdown-item">Add a new product</a>
+                                    <a href="{% url 'add_product' %}" class="dropdown-item" aria-label="Add a new product">Add a new product</a>
                                 {% endif %}
-                                <a href="{% url 'profile' %}" class="dropdown-item">My profile</a>
-                                <a href="{% url 'wishlist' %}" class="dropdown-item">My wishlist</a>
-                                <a href="{% url 'account_logout' %}" class="dropdown-item">Sign out</a>
+                                <a href="{% url 'profile' %}" class="dropdown-item" aria-label="My profile">My profile</a>
+                                <a href="{% url 'wishlist' %}" class="dropdown-item" aria-label="My Wishlist">My wishlist</a>
+                                <a href="{% url 'account_logout' %}" class="dropdown-item" aria-label="Sign Out">Sign out</a>
                             {% else %}
-                                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                                <a href="{% url 'account_login' %}" class="dropdown-item">Sign in</a>
+                                <a href="{% url 'account_signup' %}" class="dropdown-item" aria-label="Register">Register</a>
+                                <a href="{% url 'account_login' %}" class="dropdown-item" aria-label="Sign in">Sign in</a>
                             {% endif %}
                         </div>
                     </li>
                     <li class="list-inline-item">
-                        <a class="{% if grand_total %}font-weight-bold pink-font{% endif %} nav-link" href="{% url 'view_bag' %}">
+                        <a class="{% if grand_total %}font-weight-bold pink-font{% endif %} nav-link" href="{% url 'view_bag' %}" aria-label="View bag">
                             <div class="text-center bag-link">
                                 <i class="fas fa-shopping-bag fa-lg"></i>
                                 <p class="mb-0">{% if grand_total %}
@@ -95,6 +98,7 @@
                 </ul>
             </div>
         </div>
+        <!-- main/mobile nav  -->
         <div class="row">
             <div class="col">
                 <nav class="navbar navbar-expand-lg navbar-light w-100">
