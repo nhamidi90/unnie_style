@@ -7,8 +7,8 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = 'Categories'
 
-    name = models.CharField(max_length=100, null=False, unique=True,
-                            blank=False,)
+    name = models.CharField(
+        max_length=100, null=False, unique=True, blank=False,)
     friendly_name = models.CharField(max_length=150, null=True, blank=True,)
     image = models.ImageField(null=True, blank=True)
 
@@ -21,8 +21,8 @@ class Category(models.Model):
 
 class Product(models.Model):
     """ Product model"""
-    category = models.ForeignKey(Category, null=True, blank=True,
-                                 on_delete=models.SET_NULL)
+    category = models.ForeignKey(
+        Category, null=True, blank=True, on_delete=models.SET_NULL)
     sku = models.CharField(max_length=100, null=True, blank=True)
     name = models.CharField(max_length=100, unique=True)
     description = models.TextField()
