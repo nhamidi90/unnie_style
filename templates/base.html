@@ -81,7 +81,7 @@
                     </li>
                     <li class="list-inline-item">
                         <a class="{% if grand_total %}font-weight-bold pink-font{% endif %} nav-link" href="{% url 'view_bag' %}">
-                            <div class="text-center">
+                            <div class="text-center bag-link">
                                 <i class="fas fa-shopping-bag fa-lg"></i>
                                 <p class="mb-0">{% if grand_total %}
                                         £{{grand_total|floatformat:2}}
@@ -130,12 +130,6 @@
         {% endblock %}
     </main>
 
-    {% block postloadjs %}
-    <script>
-        $('.toast').toast('show');
-    </script>
-    {% endblock %}
-
     <footer class="mx-5 my-2">
         <div class="container-fluid">
             <hr>
@@ -161,6 +155,12 @@
             </div>
         </div>
     </footer>
+
+    {% block postloadjs %}
+    <script>
+        $('.toast').toast('show');
+    </script>
+    {% endblock %}
 </body>
 
 </html>
