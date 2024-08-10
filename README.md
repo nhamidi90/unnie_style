@@ -219,15 +219,7 @@ Please refer [here](TESTING.md) for all information on testing
 
 ## Deployment
 
-* To make a local copy of this project, you can clone the repository by typing the following command into your IDE terminal:
-
-`git clone https://github.com/nhamidi90/unnie_style.git`
-
-* Alternatively, to open the workspace in Gitpod, you can [click here](https://gitpod.io/#https://github.com/nhamidi90/unnie_style)
-* Go to the Heroku dashboard an select 'Create new app'
-* Enter a unique name and select your region. Click 'Create App'.
-* Inside your project, go to the settings tab and select the 'Reveal config vars' button
-
+For information on deployment, please refer [here](DEPLOYENT.md)
 
 ## Credits
 
