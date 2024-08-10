@@ -12,6 +12,7 @@ def bag_contents(request):
     bag = request.session.get('bag', {})
 
     for item_id, item_data in bag.items():
+        # if item is already in bag, increase quantity
         if isinstance(item_data, int):
             product = get_object_or_404(Product, pk=item_id)
             total += item_data * product.price
@@ -22,6 +23,7 @@ def bag_contents(request):
                 'product': product,
             })
         else:
+            # otherwise add to bag
             product = get_object_or_404(Product, pk=item_id)
             for size, quantity in item_data['items_by_size'].items():
                 total += quantity * product.price
@@ -33,6 +35,7 @@ def bag_contents(request):
                     'size': size
                 })
 
+    # calculate shipping costs
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = Decimal(settings.STANDARD_DELIVERY)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total

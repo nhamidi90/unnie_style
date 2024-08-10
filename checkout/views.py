@@ -36,12 +36,16 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
+    """
+    Checkout items in the bag
+    """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
 
+        # create order form
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -105,6 +109,7 @@ def checkout(request):
             messages.error(request, "There's nothing in your bag")
             return redirect(reverse('products'))
 
+        # get bag contents and total
         current_bag = bag_contents(request)
         total = current_bag['grand_total']
         stripe_total = round(total * 100)
@@ -115,6 +120,7 @@ def checkout(request):
         )
 
         if request.user.is_authenticated:
+            # populate the order form with the default address
             try:
                 profile = UserProfile.objects.get(user__id=request.user.id)
                 addresses = Addresses.objects.filter(user_profile=profile)
@@ -165,8 +171,8 @@ def checkout(request):
 
     if not stripe_public_key:
         messages.warning(
-            request, "Stripe public key is missing. \
-            Did you forget to set it in your environment?"
+            request, '''Stripe public key is missing. Did you forget to set
+            it in your environment?'''
         )
 
     template = 'checkout/checkout.html'
@@ -191,6 +197,7 @@ def checkout_success(request, order_number):
         order.user_profile = profile
         order.save()
 
+        # save address to profile if checkbox is ticked
         if save_info:
             address_data = {
                 'street_address1': order.street_address1,

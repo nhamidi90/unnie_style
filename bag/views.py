@@ -81,15 +81,18 @@ def remove_from_bag(request, item_id):
 
     try:
         size = None
+        # get products with sizes
         if 'product_size' in request.POST:
             size = request.POST['product_size']
         bag = request.session.get('bag', {})
 
         if size:
+            # if size in bag, remove one
             del bag[item_id]['items_by_size'][size]
             if not bag[item_id]['items_by_size']:
                 bag.pop(item_id)
         else:
+            # otherwise, remove item
             bag.pop(item_id)
 
         request.session['bag'] = bag
