@@ -127,7 +127,6 @@ def checkout(request):
                 if addresses:
                     for address in addresses:
                         if address.default_address:
-                            print(address.street_address1)
                             order_form = OrderForm(initial={
                                 'full_name': profile.user.get_full_name(),
                                 'email': profile.user.email,
@@ -139,6 +138,7 @@ def checkout(request):
                                 'postcode': address.postcode,
                                 'country': address.country,
                             })
+                            break
                         else:
                             order_form = OrderForm(initial={
                                 'full_name': profile.user.get_full_name(),
@@ -163,7 +163,6 @@ def checkout(request):
                         'postcode': "",
                         'country': "",
                     })
-
             except UserProfile.DoesNotExist:
                 order_form = OrderForm()
         else:
