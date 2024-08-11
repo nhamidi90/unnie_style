@@ -6,11 +6,11 @@
 <div class="container">
     <div class="row header-container">
         <div class="col">
-            <h1 class="header-padding">Checkout <img class="heart" src="{{ MEDIA_URL }}heart.png" 
-                alt="heart image"></h1>
+            <h1 class="header-padding">Checkout <img class="heart" src="{{ MEDIA_URL }}heart.png" alt="heart image">
+            </h1>
         </div>
     </div>
-    
+
     <!-- order summary  -->
     <div class="row">
         <div class="col-12 col-lg-6 order-lg-last">
@@ -29,17 +29,17 @@
                 <div class="col-3 p-0 pl-2">
                     <a href="{% url 'product_detail' item.product.id %}">
                         {% if item.product.main_image %}
-                            <img class="img-fluid" src="{{ item.product.main_image.url }}" 
-                            alt="{{ product.name }}">
+                            <img class="img-fluid" src="{{ item.product.main_image.url }}" alt="{{ product.name }}">
                         {% else %}
-                            <img class="img-fluid" src="{{ MEDIA_URL }}no_image.png" 
-                            alt="{{ product.name }}">
+                            <img class="img-fluid" src="{{ MEDIA_URL }}no_image.png" alt="{{ product.name }}">
                         {% endif %}
                     </a>
                 </div>
                 <div class="col-6">
                     <p><strong>{{ item.product.name }}</strong></p>
-                    {% if item.product.has_sizes %}<p class="small">Size: <strong>{{ item.size|upper }}</strong></p>{% endif %}
+                    {% if item.product.has_sizes %}
+                        <p class="small">Size: <strong>{{ item.size|upper }}</strong></p>
+                    {% endif %}
                     <p class="small">Quantity: <strong>{{ item.quantity }}</strong></p>
                 </div>
                 <div class="col-3 text-right pr-3 pl-0">
@@ -49,9 +49,13 @@
             {% endfor %}
             <hr>
             <div>
-                <p class="d-flex justify-content-between small mb-0"><strong>Subtotal:</strong>£{{ total|floatformat:2 }}</p>
-                <p class="d-flex justify-content-between small m-0"><strong>Delivery:</strong> £{{ delivery|floatformat:2 }}</p>
-                <p class="d-flex justify-content-between small"><strong>Total:</strong> £{{ grand_total|floatformat:2 }}</p>
+                <p class="d-flex justify-content-between small mb-0">
+                    <strong>Subtotal:</strong>£{{ total|floatformat:2 }}</p>
+                <p class="d-flex justify-content-between small m-0"><strong>Delivery:</strong>
+                    £{{ delivery|floatformat:2 }}</p>
+                <p class="d-flex justify-content-between small">
+                    <strong>Total:</strong> £{{ grand_total|floatformat:2 }}
+                </p>
             </div>
         </div>
 
@@ -80,10 +84,11 @@
                             <label class="form-check-label mr-2" for="id-save-info">Save this address</label>
                             <input class="form-check-input" type="checkbox" id="id-save-info" name="save_info" checked>
                         {% else %}
-                        <label class="form-check-label" for="id-save-info">
-                            <a href="{% url 'account_login' %}" aria-label="Sign in"> Sign in</a> or 
-                            <a href="{% url 'account_signup' %}" aria-label="Create an account">create an account</a> to save this address
-                        </label>
+                            <label class="form-check-label" for="id-save-info">
+                                <a href="{% url 'account_login' %}" aria-label="Sign in"> Sign in</a> or
+                                <a href="{% url 'account_signup' %}" aria-label="Create an account">create an account</a> to
+                                save this address
+                            </label>
                         {% endif %}
                     </div>
                 </fieldset>
@@ -102,10 +107,11 @@
                         Back to bag
                     </a>
                     <button class="btn ml-3" id="submit-button">
-                            Complete Order
+                        Complete Order
                     </button>
                     <p class="small text-danger mt-2">
-                        <i class="fas fa-exclamation-circle"></i> Your card will be charged £{{ grand_total|floatformat:2 }}
+                        <i class="fas fa-exclamation-circle"></i> Your card will be charged
+                        £{{ grand_total|floatformat:2 }}
                     </p>
                 </div>
             </form>
@@ -124,8 +130,8 @@
 {% endblock %}
 
 {% block postloadjs %}
-    {{block.super}}
-    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
-    {{ client_secret|json_script:"id_client_secret" }}
-    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+{{block.super}}
+{{ stripe_public_key|json_script:"id_stripe_public_key" }}
+{{ client_secret|json_script:"id_client_secret" }}
+<script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}

@@ -86,7 +86,8 @@
                         <a class="{% if grand_total %}font-weight-bold pink-font{% endif %} nav-link" href="{% url 'view_bag' %}" aria-label="View bag">
                             <div class="text-center bag-link">
                                 <i class="fas fa-shopping-bag fa-lg"></i>
-                                <p class="mb-0">{% if grand_total %}
+                                <p class="mb-0">
+                                    {% if grand_total %}
                                         £{{grand_total|floatformat:2}}
                                     {% else %}
                                         £0.00

@@ -7,15 +7,15 @@
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="user-options">
                 {% if request.user.is_authenticated %}
-                {% if request.user.is_superuser %}
-                <a href="{% url 'add_product' %}" aria-label="Add product" class="dropdown-item">Add Product</a>
-                {% endif %}
-                <a href="{% url 'profile' %}" aria-label="My Profile" class="dropdown-item">My Profile</a>
-                <a href="{% url 'wishlist' %}" aria-label="My Wishlist" class="dropdown-item">My wishlist</a>
-                <a href="{% url 'account_logout' %}" aria-label="Logout" class="dropdown-item">Logout</a>
+                    {% if request.user.is_superuser %}
+                        <a href="{% url 'add_product' %}" aria-label="Add product" class="dropdown-item">Add Product</a>
+                    {% endif %}
+                    <a href="{% url 'profile' %}" aria-label="My Profile" class="dropdown-item">My Profile</a>
+                    <a href="{% url 'wishlist' %}" aria-label="My Wishlist" class="dropdown-item">My wishlist</a>
+                    <a href="{% url 'account_logout' %}" aria-label="Logout" class="dropdown-item">Logout</a>
                 {% else %}
-                <a href="{% url 'account_signup' %}" aria-label="Register" class="dropdown-item">Register</a>
-                <a href="{% url 'account_login' %}" aria-label="login" class="dropdown-item">Login</a>
+                    <a href="{% url 'account_signup' %}" aria-label="Register" class="dropdown-item">Register</a>
+                    <a href="{% url 'account_login' %}" aria-label="login" class="dropdown-item">Login</a>
                 {% endif %}
             </div>
         </li>

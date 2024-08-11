@@ -11,22 +11,22 @@
         <div class="col-12 col-md-6 order-last">
             <div id="main-image-cont">
                 {% if product.main_image %}
-                <img class="img-fluid" src="{{ product.main_image.url }}" alt="{{ product.name }}">
+                    <img class="img-fluid" src="{{ product.main_image.url }}" alt="{{ product.name }}">
                 {% else %}
-                <img class="img-fluid" src="{{ MEDIA_URL }}no_image.png" alt="{{ product.name }}">
+                    <img class="img-fluid" src="{{ MEDIA_URL }}no_image.png" alt="{{ product.name }}">
                 {% endif %}
             </div>
             <div class="row w-100 image-container">
                 {% if product.main_image %}
-                <img class="small-image px-2" src="{{ product.main_image.url }}" alt="{{ product.name }}">
+                    <img class="small-image px-2" src="{{ product.main_image.url }}" alt="{{ product.name }}">
                 {% else %}
-                <img class="small-image px-2" src="{{ MEDIA_URL }}no_image.png" alt="{{ product.name }}">
+                    <img class="small-image px-2" src="{{ MEDIA_URL }}no_image.png" alt="{{ product.name }}">
                 {% endif %}
                 {% for image in images %}
                 {% if product.name == image.product.name %}
-                <div class="my-auto px-2">
-                    <img src="{{ image.image.url }}" class="small-image" alt="{{ image.product.name }}">
-                </div>
+                    <div class="my-auto px-2">
+                        <img src="{{ image.image.url }}" class="small-image" alt="{{ image.product.name }}">
+                    </div>
                 {% endif %}
                 {% endfor %}
             </div>
@@ -84,10 +84,11 @@
                     <!-- add to bag/ wishlist/ back -->
                     <div class="col-12 d-flex">
                         <span class="btn button-style mr-2">
-                            <input type="submit" value="Add to Bag" aria-label="Add to bag"> <i class="fas fa-shopping-bag"></i>
+                            <input type="submit" value="Add to Bag" aria-label="Add to bag"> 
+                                <i class="fas fa-shopping-bag"></i>
                         </span>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                    </div>  
+                    </div>
                 </div>
             </form>
             <form action="{% url 'add_to_wishlist' product.id %}" method='POST'>
@@ -96,18 +97,22 @@
                     Add to Wishlist <i class="fa-regular fa-heart"></i>
                 </button>
             </form>
-                    <div class="col-12 pt-2 pl-0">
-                        <a class="btn button-style" href="{% url 'products' %}" aria-label="Back">
-                            <i class="fa-solid fa-chevron-left"></i>
-                            Back 
-                        </a>
-                    </div>
+            <div class="col-12 pt-2 pl-0">
+                <a class="btn button-style" href="{% url 'products' %}" aria-label="Back">
+                    <i class="fa-solid fa-chevron-left"></i>
+                    Back
+                </a>
+            </div>
 
             <!-- edit/delete buttons  -->
             <div class="mt-5">
                 {% if request.user.is_superuser %}
-                    <span class="mr-3"><a href="{% url 'edit_product' product.id %}" aria-label="Edit product"> Edit</a></span> |
-                    <span class="ml-3"><a class="text-danger" href="{% url 'delete_product' product.id %}" aria-label="Delete product">Delete</a></span>
+                <span class="mr-3">
+                    <a href="{% url 'edit_product' product.id %}" aria-label="Edit product">Edit</a>
+                </span> |
+                <span class="ml-3">
+                    <a class="text-danger" href="{% url 'delete_product' product.id %}" aria-label="Delete product">Delete</a>
+                </span>
                 {% endif %}
             </div>
         </div>
@@ -122,12 +127,11 @@
 {% include 'products/includes/quantity_input_script.html' %}
 <script>
     // enlarge image 
-    $( ".small-image" ).on( "click", function() {
+    $(".small-image").on("click", function () {
         let pic = $(this).clone();
         pic.removeClass('small-image').addClass('img-fluid');
         $("#main-image-cont").append(pic);
         $("#main-image-cont").children(":first").remove();
-} );
-    
+    });
 </script>
 {% endblock %}

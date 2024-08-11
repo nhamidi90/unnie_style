@@ -14,9 +14,10 @@
     <div class="row">
         <div class="col-12">
             <p><strong>My details:</strong></p>
-            <p>Username: {{ profile }}
-            <br>Phone number: {{ profile.phone_number }}
-            <br>Email address: {{ user.email }}
+            <p>
+                Username: {{ profile }}
+                <br>Phone number: {{ profile.phone_number }}
+                <br>Email address: {{ user.email }}
             </p>
         </div>
     </div>
@@ -89,7 +90,8 @@
                 {% if ad.county %}<br>{{ ad.county }}{% endif %}
                 {% if ad.postcode %}<br>{{ ad.postcode }}{% endif %}
                 <br>{{ ad.country }}
-                <p><a href="{% url 'edit_address' ad.id %}" aria-label="Edit address">Edit</a> | 
+                <p>
+                    <a href="{% url 'edit_address' ad.id %}" aria-label="Edit address">Edit</a> | 
                     <a href="{% url 'delete_address' ad.id %}" aria-label="Delete address">Delete</a>
                 </p>
                 <hr>
