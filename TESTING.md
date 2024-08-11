@@ -141,7 +141,23 @@
 ![Lighthouse validator result - sign in page](documentation/testing/validation/lighthouse/sign-in.png)
 
 ## Responsiveness testing
-* Responsiveness testing was carried out on Chrome devtools
+* Responsiveness testing was carried out on Chrome devtools. The screens covered include:
+
+    - iPhone SE
+    - iPhone XR
+    - iPhone 12 Pro
+    - Pixel 5
+    - Samsung Galaxy S8+
+    - Samsung Galaxy S20 Ultra
+    - iPad Mini
+    - iPad Air
+    - Surface Pro 7
+    - Surface Duo
+    - Galaxy Fold
+    - Samsung Galaxy A51/71
+    - Nest Hub
+    - Nest Hub Max
+
 * The website was tested on 3 browsers: Firefox, Chrome and Opera to make sure they work correctly
 
 ## Manual testing
@@ -181,6 +197,7 @@
 
 ### Wishlist page
 * Users can remove items from their wishlist successfully
+* Users are directed to product detail page when they want to add a product to their bag
 
 ### User authentification
 * Users can sign up, sign in and sign out sucessfully
@@ -188,6 +205,7 @@
 
 ### Product management
 * Admin can successfully add a new product with images
+* Admin can edit and delete products
 
 ## Bugs
 
@@ -197,4 +215,4 @@
 
 ### Pre-populating the checkout form with a default address
 
-* As users can have multiple addresses I tried to populate the checkout form with their selected default address. However this proved problematic since if they are ordering for the first time without an address already saved, there would be an error. This was due to me not filtering the data correctly so I had to use a filter rather than a get statement. Then I could use an if statement to check whther the address exists or not.
+* As users can have multiple addresses I tried to populate the checkout form with their selected default address. However this proved problematic since if they are ordering for the first time without an address already saved, there would be an error. This was due to me not filtering the data correctly so I had to use a filter rather than a get statement. Then I could use an if statement to check whther the address exists or not. Further tests showed that only the most recently addedd address would show up in the form as the default address (others would not show when set to default) which was solved with a break statement.
