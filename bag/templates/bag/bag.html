@@ -107,9 +107,13 @@
                         <i class="fas fa-chevron-left"></i>
                         Keep Shopping
                     </a>
-                    <a href="{% url 'checkout' %}" class="btn checkout-btn" aria-label="Checkout">
-                        Checkout
-                    </a>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'checkout' %}" class="btn checkout-btn" aria-label="Checkout">
+                            Checkout
+                        </a>
+                    {% else %}
+                        <a href="{% url 'account_login' %}" aria-label="Sign in"> Sign in</a>
+                    {% endif %}
                 </div>
             </div>
             {% else %}
