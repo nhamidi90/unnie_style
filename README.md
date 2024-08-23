@@ -178,24 +178,24 @@ This diagram illustrates the models and their relationships
 ## Technologies used
 
 ### Languages
-* [HTML](https://en.wikipedia.org/wiki/HTML)
-* [CSS](https://en.wikipedia.org/wiki/CSS)
-* [Javascript](https://en.wikipedia.org/wiki/JavaScript)
-* [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+* [HTML](https://en.wikipedia.org/wiki/HTML) was used to make the main content of the site
+* [CSS](https://en.wikipedia.org/wiki/CSS) was used to add styling
+* [Javascript](https://en.wikipedia.org/wiki/JavaScript) was used to add interactivity and to set up Stripe
+* [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) was the language used for the backend logic
 
-### Frameworks
-* [Django](https://www.djangoproject.com/)
-* [Jinja](https://jinja.palletsprojects.com/en/3.1.x/)
-* [Jquery](https://jquery.com/)
-* [Bootstrap](https://getbootstrap.com/)
-* [Google fonts](https://fonts.google.com/)
-* [Font awesome](https://fontawesome.com/)
+### Extra Technologies
+* [Django](https://www.djangoproject.com/) was the framework used for the development of the site
+* [Jquery](https://jquery.com/) was used to keep javascript shorter and simpler
+* [Bootstrap](https://getbootstrap.com/) elements were included in the project
+* [Google fonts](https://fonts.google.com/) was used for fonts
+* [Font awesome](https://fontawesome.com/) was the library used to add icons 
 
 ### Storage and hosting
 * [Heroku](https://heroku.com/) was used to deploy the site
 * [Github](https://github.com/) was used to store the repository
 * [Amazon web services](https://aws.amazon.com/) was used to host and store static files
-* [Code Institute](https://codeinstitute.net/) Postgres Database was used to host the website's database
+* [Postgres SQL](https://www.postgresql.org/) was used to host the website's database and provided by [Code Institute](https://codeinstitute.net/)
+* [SQL Lite](https://www.sqlite.org/) was the database engine used for testing. Provided by Django
 
 ### Payment
 * [Stripe](https://stripe.com/gb) was used to make payments
@@ -207,9 +207,10 @@ This diagram illustrates the models and their relationships
 ### Other tools
 * [Balsamiq](https://balsamiq.com/) was used to create wireframes
 * [Illustrator](https://www.adobe.com/uk/products/illustrator.html) was used to create t-shirt mockups and resize images
-* [Free Conert](https://www.freeconvert.com/webp-converter) was used to compress images 
+* [Free Convert](https://www.freeconvert.com/webp-converter) was used to compress images 
 * [Am I responsive](https://ui.dev/amiresponsive) was used to create a mockup of the site
 * [Google chrome dev tools](https://developer.chrome.com/docs/devtools) was used to test responsiveness and debugging
+* [Responsive Viewer](https://chromewebstore.google.com/detail/responsive-viewer/inmopeiepgfljkpkidclfgbgbmfcennb?hl=en) Is a chrome extension used to check responsiveness of the site
 * [dbdiagram](https://dbdiagram.io/) was used to mock up database structure diagram.
 
 
@@ -219,7 +220,7 @@ Please refer [here](TESTING.md) for all information on testing
 
 ## Deployment
 
-For information on deployment, please refer [here](DEPLOYENT.md)
+For information on deployment, please refer [here](DEPLOYMENT.md)
 
 ## Credits
 
@@ -228,6 +229,10 @@ For information on deployment, please refer [here](DEPLOYENT.md)
 * [Code Institute](https://codeinstitute.net/) - I sourced most of the framework using the Code Institute Boutique Ado wallkthrough. Although there are similarities in the checkout, payment, webhook system I customised my site wherever possible in order to fit my user goals.
 * [Bootstrap](https://getbootstrap.com/) - I used bootstrap classes throughout the project for layout and also used elements such as navbar, toasts and dropdowns
 * [W3C Schools](https://www.w3schools.com/howto/howto_css_hide_arrow_number.asp) gave me the code for hiding the arrow inside an input number
+* [Google fonts](https://fonts.google.com/) - Used for fonts
+* [Font awesome](https://fontawesome.com/) - Used for icons
+* [Balsamiq](https://balsamiq.com/) - Used to create wireframes
+* [Stripe](https://stripe.com/gb) - Used to make payments
 
 ### Media
 
