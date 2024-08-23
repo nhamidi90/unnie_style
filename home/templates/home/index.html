@@ -26,19 +26,22 @@
     <div class="row pt-5 justify-content-center">
             {% for category in categories %}
             <div class="col-sm-4">
-                <div class="card">
+                <div class="card border-0">
                     {% if category.image %}
-                        <a href="{% url 'products' %}?category={{category.name}}">
+                        <a href="{% url 'products' %}?category={{category.name}}" class="categories">
                             <img class="img-fluid rounded" src="{{ category.image.url }}" alt="{{ category.friendly_name }}">
+                            <div class="text-center pt-2">
+                                <p class="category-text">{{ category.friendly_name }} <i class="fa-solid fa-arrow-right"></i></p>
+                            </div>
                         </a>
                     {% else %}
-                        <a href="">
+                        <a href="{% url 'products' %}?category={{category.name}}">
                             <img class="img-fluid" src="{{ MEDIA_URL }}no_image.png" alt="{{ category.friendly_name }}">
+                            <div class="text-center pt-2">
+                                <p class="category-text">{{ category.friendly_name }} <i class="fa-solid fa-arrow-right"></i></p>
+                            </div>
                         </a>
                     {% endif %}
-                </div>
-                <div class="text-center pt-2">
-                    <p class="category-text">{{ category.friendly_name }} <i class="fa-solid fa-arrow-right"></i></p>
                 </div>
             </div>
         {% endfor %}

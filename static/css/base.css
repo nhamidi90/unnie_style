@@ -259,7 +259,8 @@ input.btn {
 }
 
 .update-link,
-.remove-item {
+.remove-item,
+.categories {
     cursor: pointer;
 }
 
