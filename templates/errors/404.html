@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_title %} | 404 Error{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row header-container">
+        <div class="col">
+            <h1 class="header-padding">404 <img class="heart" src="{{ MEDIA_URL }}heart.png" alt="heart image">
+            </h1>
+        </div>
+    </div>
+
+    <strong>Oh! It seems that this page doesn't exist.</strong>
+    <div>
+        <a href="{% url 'products' %}" aria-label="Back to products page" class="btn shop-btn">
+            <i class="fas fa-chevron-left"></i>
+            Back to store
+        </a>
+    </div>
+</div>
+{% endblock %}
