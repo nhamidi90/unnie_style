@@ -341,14 +341,8 @@ select option[value=""] {
     }
 }
 
-@media (max-width: 400px) {
-    .logo {
-        display: none;
-    }
 
-    #logo-mini {
-        display:inline-block;
-    }
+@media (max-width: 400px) {
 
     .mobile-icon {
         font-size: 10px; 
@@ -360,6 +354,15 @@ select option[value=""] {
         text-align: center;
     }
 
+}
+@media (max-width: 427px) {
+    .logo {
+        display: none;
+    }
+
+    #logo-mini {
+        display:inline-block;
+    }
 }
 
 @media (max-width: 619px) {
