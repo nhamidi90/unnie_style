@@ -335,6 +335,12 @@ select option[value=""] {
 
 /* Media queries */
 
+@media (min-width: 400px) {
+    .header-padding {
+        padding-top: 40px;
+    }
+}
+
 @media (max-width: 400px) {
     .logo {
         display: none;
