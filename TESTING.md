@@ -15,13 +15,19 @@
 
 ![HTML validator result - add product page](documentation/testing/validation/add.png)
 
+Since this was only information and does not affect the functionality of the site, I decided to leave it
+
 * Add product image
 
 ![HTML validator result - add product image page](documentation/testing/validation/add-image.png)
 
+Since this was only information and does not affect the functionality of the site, I decided to leave it
+
 * Edit product
 
 ![HTML validator result - edit product page](documentation/testing/validation/edit.png)
+
+Since this was only information and does not affect the functionality of the site, I decided to leave it
 
 * Product detail
 
@@ -63,6 +69,10 @@
 
 ![CSS validator result](documentation/testing/validation/css-validator.png)
 
+There are 5 warnings. However since they do not affect the functionality of the project I decided to leave them as is.
+
+![CSS validator result](documentation/testing/validation/css-warning.png)
+
 ### JSHINT Javascript Validator
 
 ![JSHINT results - bag](documentation/testing/validation/jshint/bag.png)
@@ -79,10 +89,13 @@
 
 ### Python Validator
 
-* I have checked all Python documents using flake8 to ensure they are compliant.
-* I left the code which I did not write 
+* I have checked all Python documents using [CI Python linter](https://pep8ci.herokuapp.com/) to ensure they are PEP8 compliant.
+* For details please refer to [this document](documentation/testing/validation/python-testing.pdf)
+
 
 ## Lighthouse reports
+
+Please note that ever since doing lighthouse testing, I have added meta data which has caused the SEO and Accessibility scores to go up
 
 * Index page
 
@@ -158,54 +171,65 @@
     - Nest Hub
     - Nest Hub Max
 
+    [You can see screenshots here](documentation/testing/validation/responsiveness.pdf)
+
+
 * The website was tested on 3 browsers: Firefox, Chrome and Opera to make sure they work correctly
 
 ## Manual testing
-### Navbar and footer
-* The navigation links have been tested and worked. The navbar switches to mobile view for smaller screens 
-* The social links in the footer have been tested and work
 
-### Homepage
-* The links to product category correctly lead to products page and filter by category
-* The hero image changes for mobile view
-
-### All products and filters
-* The filters have been tested and work
-* Reset filters also work as desired
-* Links are working correctly
-
-### Search
-* Search bar works correctly
-* Empty search works
-
-### Products details page
-* All buttons work as desired
-* The edit and delete product link works when tested
-* Images are enlarged when clicked on
-
-### Bag
-* Users can add and remove items
-* Buttons work as expected
-
-### Checkout
-* Signed in users can save their address to their profile
-* Successful orders are added to user profile page and users are taken to the checkout success page
-
-### Profile page
-* Users can add, edit and remove their addresses
-* Links to order history works
-
-### Wishlist page
-* Users can remove items from their wishlist successfully
-* Users are directed to product detail page when they want to add a product to their bag
-
-### User authentification
-* Users can sign up, sign in and sign out sucessfully
-* New users will recieve an email to authenticate their email address
-
-### Product management
-* Admin can successfully add a new product with images
-* Admin can edit and delete products
+|feature	|action	|expected result|	tested	|passed	|comments|
+|-----------|-------|---------------|-----------|-------|--------|
+|**Footer**					|
+|Facebook icon in the footer|	Click on the Facebook icon|The user is redirected to the Facebook page|	Yes|	Yes	|-|
+|Tiktok icon in the footer|	Click on the Tiktok icon|The user is redirected to the Tiktok page|	Yes|	Yes	|-|
+|Instagram icon in the footer|	Click on the Instagram icon|The user is redirected to the Instagram page|	Yes|	Yes	|-|
+|**Navbar**	|
+|Logo |Click on the logo| users will be directed to the home page | Yes | Yes | - |
+|Navbar links |Click on each navbar link| users will be directed to the correct page | Yes | Yes | Navbar switches to mobile view for smaller screens |
+|Searchbar |Search for a product| The product will filtered | Yes | Yes | Reset filter is also working as desired. Empty search also works |
+|**Home Page**					|
+|Category links |Click on the category images| The user is redirected to products page filtered by the category | Yes | Yes | - |
+|Hero image |Change view from desktop to mobile| The hero image will be changed | Yes | Yes | - |
+|**All products page and filter**					|
+|Filters| Select a filter| The products will be filtered correctly | Yes | Yes | The clear filter link also works |
+|Add to wishlist button |Click on the heart icon| product will be added to wishlist | Yes | Yes | - |
+|Edit product |Click on the edit link| user will be directed to edit product | Yes | Yes | for admin only |
+|Delete product |Click on the delete link| Product wil be deleted | Yes | Yes | for admin only |
+|**Poducts details page**	
+|Images enlarged when clicked| click an image| Image will be appended to main container enlarged | Yes | Yes | - |				|
+|Add to wishlist| click 'Add to wishlist' button| Product will be added to wishlist | Yes | Yes | - |
+|Toggle quantity| click plus/minus buttons| Quantity will be increased/decreased as desired | Yes | Yes | If quantity is below 1, the minus button will be disabled|
+|Add to bag button |Click on the 'Add to bag' button | product will be added to bag | Yes | Yes | - |
+|Edit link |Click on the edit link| user will be directed to edit product | Yes | Yes | for admin only |
+|Delete link |Click on the delete link| Product wil be deleted | Yes | Yes | for admin only |
+|**Bag Page**					|
+|Add/remove items |Click plus/minus buttons in quantity selector| quantity will be updated | Yes | Yes | You cannot add a quantity less than 0 |
+|Remove link |Click on the "Remove" link| Product will be removed | Yes | Yes | - |
+|Update button |Click on the "Update" link| Prices will be updated if quantity is changed | Yes | Yes | - |
+|**Checkout Page**					|
+|Signed in users can save their address to their profile |Fill in address and ensure the checkbox is ticked|Address will be saved to profile|   Yes	|Yes| Form will be populated with default address if they have one|
+|If not signed in, users will be directed to sign in |Click on the checkout button while not being signed in |The user is redirected to the sign in page|	Yes	|Yes|	-|
+|Orders are added to user's profile page | Checkout successfully |Order will appear on profile page |	Yes	|Yes|	-|
+|Successful orders are taken to checkout success page | Checkout successfully |you will be directed to checkout success page |	Yes	|Yes|	-|
+|**Profile Page**					|
+|Add address |Fill in address form |Address will be saved to profile|   Yes	|Yes|	Only one address can be the default|
+|Edit address |Click on the edit link under an address and edit the address |The address will be changed|	Yes	|Yes|	-|
+|Delete an address | Click on delete under an address |Address will be deleted |	Yes	|Yes|	-|
+|Order history | Click on order number |you will be directed to order history page |	Yes	|Yes|	-|
+|**Wishlist Page**					|
+|Remove items |Click on the bin icon |Item will be removed|   Yes	|Yes|	-|
+|Add to bag |Click on the add to bag button | Users will be taken to product detail page |	Yes	|Yes|	-|
+|**Wishlist Page**					|
+|Remove items |Click on the bin icon |Item will be removed|   Yes	|Yes|	-|
+|Add to bag |Click on the add to bag button | Users will be taken to product detail page |	Yes	|Yes|	-|
+|**User authentification**					|
+|Sign up page |Fill in form on sign up page |User account will be created. User will receive email to authenticate email address|   Yes	|Yes|	-|
+|Sign in page |Log in | Users will be taken to product index page |	Yes	|Yes|	-|
+|Sign out |Log out | Users will be asked if they want to log out |	Yes	|Yes|	-|
+|**Product management**					|
+|Add product |Click on add product in navbar and fill in the form|Product will be created|   Yes	|Yes|	-|
+|Add product image |Click on add images link and add an image | Image will be added for that product |	Yes	|Yes|	-|
 
 ## Bugs
 
