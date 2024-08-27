@@ -46,15 +46,22 @@ DATABASES = {
 * Migrate your database to the new database:
 
     `python3 manage.py migrate`
-* Load the fixtures by running these 2 commands in the terminal. Categories must be loaded first. You will have to add the extra images manually through the admin:
-
+* Load the fixtures by running these 2 commands in the terminal. Categories must be loaded first. 
     `python3 manage.py loaddata categories`
 
     `python3 manage.py loaddata products`
+
+* You will have to add the extra images manually through the admin but first you will need to ensure they are downloaded from GitHub:
+https://github.com/nhamidi90/unnie_style/tree/main/media:
 * Create a superuser. The email can be left blank:
 
     `python3 manage.py createsuperuser`
-* You need to delete your database again to prevent it from being exposed to GitHub and uncomment out the original database code. You will also need to add an if statement for when the app is running on Heroku. The codes hould look like this:
+
+* Go to `{{your web addess}}/admin` and sign in using the details you just created
+
+* Under the 'products' category, select 'Other Images'. Select 'Add Other Images' and proceed to add your images
+
+* You need to delete your database again to prevent it from being exposed to GitHub and uncomment out the original database code. You will also need to add an if statement for when the app is running on Heroku. The code should look like this:
 ```
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
