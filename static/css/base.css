@@ -355,7 +355,8 @@ select option[value=""] {
     }
 
     .header-padding {
-        padding: 0;
+        padding-left: 0;
+        padding-bottom:0;
         text-align: center;
     }
 
